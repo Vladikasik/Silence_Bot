@@ -1,0 +1,4 @@
+when i import var.py file in other files,
+it means that i have this file on my PC,
+where variables such as token of disk,
+and token of telegramm bot are lokated.
