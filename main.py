@@ -35,10 +35,12 @@ def main():
         if message.text == keyboard.bttn_info:
 
             mes = bot.send_message(message.chat.id, messages.tr)
+            print(mes)
             bot.register_next_step_handler(mes,trans)
 
     def trans(mes):
         a = transfer.tr(mes.from_user.username, mes.text)
+        print(mes.from_user.username, mes.text)
         a.start()
 
 
