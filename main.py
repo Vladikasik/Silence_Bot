@@ -5,9 +5,10 @@ def main():
     import keyboard
     import start_disk
     import prsn_inf
+    import transfer
 
     bot = telebot.TeleBot(var.token_of_bot)
-
+    print(bot)
 
     # Функйия которая реагирует на команды
     @bot.message_handler(commands=['start'])
@@ -32,11 +33,13 @@ def main():
             bot.send_message(message.chat.id,mes)
             print('Message sent')
         if message.text == keyboard.bttn_info:
-            mes = bot.send_message(call.message.chat.id, messages.tr)
+
+            mes = bot.send_message(message.chat.id, messages.tr)
             bot.register_next_step_handler(mes,trans)
 
     def trans(mes):
-        return mes.from_user.username, mes.text
+        a = transfer.tr(mes.from_user.username, mes.text)
+        a.start()
 
 
 
