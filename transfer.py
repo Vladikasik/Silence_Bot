@@ -33,9 +33,11 @@ class tr:
 						if i['Username'] == self.Username_2:
 							self.balance_2 = int(i['Balance'])
 
+		available_to_trans = False
 
 
 
+	def printt(self):
 		print(self.Username_1,self.Username_2)
 		print(self.balance_1,self.balance_2)
 

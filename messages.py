@@ -20,9 +20,11 @@ def inf(prsn):
     sn = prsn['SecondName']
     un = prsn['Username']
     bl = prsn['Balance']
+    st = prsn['Status']
 
     message = ['Имя: ',fn,' ',sn,'\n',
             'Юзернэйм: ', un, '\n',
-            'Баланс: ', bl]
+            'Баланс: ', bl,'\n',
+            'Статус: ', st]
     print(''.join(message))
     return ''.join(message)
