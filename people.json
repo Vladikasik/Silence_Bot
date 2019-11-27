@@ -1,0 +1,23 @@
+[
+  {
+    "FirstName": "DefaultTest",
+    "SecondName": "None",
+    "Username": "vlad_ain",
+    "Balance": "99999000",
+    "Status": "Student"
+  },
+  {
+    "FirstName": "Семён",
+    "SecondName": "Дроздов",
+    "Username": "SemyonDrozdov",
+    "Balance": "0",
+    "Status": "Student"
+  },
+  {
+    "FirstName": "Leonid",
+    "SecondName": "Ivanov",
+    "Username": "leo_ivanov",
+    "Balance": "78776",
+    "Status": "Teacher"
+  }
+]

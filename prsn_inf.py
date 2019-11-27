@@ -7,7 +7,7 @@ import os
 def info(Username):
 
     us = []
-    with open(r'people.json', 'r') as f:
+    with open('people.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
             for j in i:
