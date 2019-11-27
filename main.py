@@ -46,6 +46,7 @@ def main():
         a = transfer.tr(mes.from_user.username, mes.text)
         a.start()
         a.printt()
+        a.main()
 
 
 

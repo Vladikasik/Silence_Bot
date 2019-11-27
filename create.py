@@ -6,7 +6,7 @@ y = yadisk.YaDisk(token=var.token_of_disk)
 
 defoult = [{'FirstName' : 'DefaultTest',
             'SecondName' : 'None',
-            'Username': 'test',
+            'Username': 'vlad_ain',
             'Balance' : '99999999',
             'Status' : 'Student'}]
 
