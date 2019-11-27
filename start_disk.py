@@ -4,7 +4,6 @@ def main(FirstName,SecondName,Username):
     import var
     import os
 
-    y = yadisk.YaDisk(token=var.token_of_disk)
 
     person_dict = {'FirstName' : str(FirstName),
                    'SecondName' : str(SecondName),
@@ -14,7 +13,6 @@ def main(FirstName,SecondName,Username):
 
     print(person_dict)
     print('###')
-    y.download("/silence_coin/people.json", "people.json")
     us = []
 
     newUser = False
@@ -30,7 +28,7 @@ def main(FirstName,SecondName,Username):
         else:
             newUser = True
 
-    y.remove("/silence_coin/people.json")
+
     if newUser:
         print('data 1',data)
         data.append(person_dict)
@@ -40,8 +38,4 @@ def main(FirstName,SecondName,Username):
     with open('people.json','w') as file:
         json.dump(data, file, indent=2,ensure_ascii=False)
 
-    y.upload('people.json','/silence_coin/people.json')
-    print('remove')
-    os.remove('people.json')
-    print('removed')
-    print('###')
+

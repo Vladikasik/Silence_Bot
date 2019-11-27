@@ -18,8 +18,6 @@ class tr:
 
 	def start(self):
 		print('shalom')
-		self.y = yadisk.YaDisk(token=var.token_of_disk)
-		self.y.download("/silence_coin/people.json", "people.json")
 		sch = 0
 		with open(r'people.json', 'r') as f:
 			self.data = json.loads(f.read())
@@ -71,6 +69,4 @@ class tr:
 
 			with open('people.json', 'w') as file:
 				json.dump(self.data, file, indent=2, ensure_ascii=False)
-			self.y.remove('/silence_coin/people.json')
-			self.y.upload('people.json', '/silence_coin/people.json')
 

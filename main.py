@@ -29,7 +29,6 @@ def main():
         print(message.text)
         if message.text == keyboard.bttn_info:
             per = prsn_inf.info(message.from_user.username)
-            prsn_inf.dell()
             mes = messages.inf(per)
             bot.send_message(message.chat.id,mes)
             print('Message sent')

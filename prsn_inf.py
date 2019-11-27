@@ -3,10 +3,9 @@ import var
 import json
 import os
 
-y = yadisk.YaDisk(token=var.token_of_disk)
 
 def info(Username):
-    y.download("/silence_coin/people.json", "people.json")
+
     us = []
     with open(r'people.json', 'r') as f:
         data = json.loads(f.read())
