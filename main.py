@@ -41,6 +41,7 @@ def main():
             print('else')
             bot.register_next_step_handler(bot.send_message(message.chat.id, messages.tr),trans)
 
+
     def trans(mes):
         a = transfer.tr(mes.from_user.username, mes.text)
         a.start()

@@ -32,6 +32,11 @@ class tr:
 					if j == 'Username':
 						if i['Username'] == self.Username_2:
 							self.balance_2 = int(i['Balance'])
+
+
+
+
 		print(self.Username_1,self.Username_2)
 		print(self.balance_1,self.balance_2)
+
 		print('###')
