@@ -2,22 +2,23 @@ import yadisk
 import var
 import json
 
-y = yadisk.YaDisk(token=var.token_of_disk)
+y = yadisk.YaDisk( token = var.token_of_disk )
 
-def db():
-    defoult = [{'FirstName': 'DefaultTest',
-                'SecondName': 'None',
-                'Username': 'vlad_ain',
-                'Balance': '99999999',
+data = [{'FirstName': 'TestName',
+                'SecondName': 'TestSurname',
+                'Username': 'test',
+                'Balance': '1000',
                 'Status': 'Student'}]
 
-    with open('people.json', 'w') as file:
-        json.dump(defoult, file, indent=2, ensure_ascii=False)
+file = open( 'people.json', 'w' )
 
-    y.upload('people.json', '/silence_coin/people.json')
+json.dump( data, file, indent=2, ensure_ascii=False )
+    
+def db():
+    y.upload( 'people.json', '/silence_coin/people.json' )
 
 def op():
-    y.upload('operations.json','/silence_coin/operations.json')
+    y.upload( 'operations.json', '/silence_coin/operations.json' )
 
 a = str(input())
 
