@@ -70,3 +70,17 @@ class tr:
 			with open('people.json', 'w') as file:
 				json.dump(self.data, file, indent=2, ensure_ascii=False)
 
+		#не трогайте пж
+		with open(r'operations.json', 'r') as f:
+			data = json.loads(f.read())
+		trans_inf = {
+					'From: ': self.Username_1,
+					'To: ': self.Username_2,
+					'Value: ': self.transfer_sum
+					}
+		data.append(trans_inf)
+		with open(r'operations.json', 'w') as f:
+			json.dump(data, file, indent=2, ensure_ascii=False)
+
+
+
