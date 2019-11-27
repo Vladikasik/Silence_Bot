@@ -11,6 +11,7 @@ class tr:
 		self.Username_2,self.transfer_sum = message.split()
 		self.balance_1 = 0
 		self.balance_2 = 0
+		self.available_to_trans = False
 
 	def start(self):
 		print('shalom')
@@ -33,8 +34,13 @@ class tr:
 						if i['Username'] == self.Username_2:
 							self.balance_2 = int(i['Balance'])
 
-		available_to_trans = False
 
+
+	def is_available(self):
+		if self.transfer_sum <= self.balance_1:
+			self.available_to_trans = True
+
+		return self.available_to_trans
 
 
 	def printt(self):
@@ -42,3 +48,8 @@ class tr:
 		print(self.balance_1,self.balance_2)
 
 		print('###')
+
+	def main(self):
+
+		if self.is_available():
+			pass
