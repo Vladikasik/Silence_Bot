@@ -11,13 +11,10 @@ class tr:
 		self.Username_2,self.transfer_sum = message.split()
 		self.balance_1 = 0
 		self.balance_2 = 0
-<<<<<<< Updated upstream
-=======
 		self.available_to_trans = False
 		self.data = None
 		self.indexes = [0,0]
 
->>>>>>> Stashed changes
 
 	def start(self):
 		print('shalom')
@@ -46,26 +43,19 @@ class tr:
 							self.balance_2 = int(i['Balance'])
 							self.indexes[1] = sch
 
-		available_to_trans = False
 
 
-<<<<<<< Updated upstream
-=======
 	def is_available(self):
 		if int(self.transfer_sum) <= self.balance_1:
 			self.available_to_trans = True
 
 		return self.available_to_trans
 
->>>>>>> Stashed changes
 
 	def printt(self):
 		print(self.Username_1,self.Username_2)
 		print(self.balance_1,self.balance_2)
 
-<<<<<<< Updated upstream
-		print('###')
-=======
 		print('###')
 
 	def main(self):
@@ -84,4 +74,3 @@ class tr:
 			self.y.remove('/silence_coin/people.json')
 			self.y.upload('people.json', '/silence_coin/people.json')
 
->>>>>>> Stashed changes
