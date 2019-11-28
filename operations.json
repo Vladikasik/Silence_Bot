@@ -1,5 +1,12 @@
 [
-  {"From: ": "vlad_ain",
-  "To: ":  "SemenDrozdov",
-  "Value: ": "9999"}
+  {
+    "From: ": "SemyonDrozdov",
+    "To: ": "vlad_ain",
+    "Value: ": "999"
+  },
+  {
+    "From: ": "SemyonDrozdov",
+    "To: ": "vlad_ain",
+    "Value: ": "999"
+  }
 ]

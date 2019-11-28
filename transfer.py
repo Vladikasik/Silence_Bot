@@ -79,7 +79,7 @@ class tr:
 					'Value: ': self.transfer_sum
 					}
 		data.append(trans_inf)
-		with open(r'operations.json', 'w') as f:
+		with open(r'operations.json', 'w') as file:
 			json.dump(data, file, indent=2, ensure_ascii=False)
 
 

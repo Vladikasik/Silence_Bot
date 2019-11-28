@@ -51,7 +51,7 @@ def main():
 
 
 
-    bot.polling(timeout=10)
+    bot.polling()
 
 if __name__ == '__main__':
     main()
