@@ -75,11 +75,18 @@ class tr:
 		with open(r'operations.json', 'r') as f:
 			data = json.loads(f.read())
 		f.close()
+		time1 = time.strftime('%H %M %S %d %b').split()
+		time2 = ''
+		time3 = [':',':','_','','']
+		for i in range(0,len(time1)):
+			time2+=time1[i]
+			time2 += time3[i]
+
 		trans_inf = {
 					'From: ': self.Username_1,
 					'To: ': self.Username_2,
 					'Value: ': self.transfer_sum,
-					'Time: ': time.strftime('%H %M %S %% %d %b')
+					'Time: ': time2
 					}
 		data.append(trans_inf)
 		with open(r'operations.json', 'w') as file:
