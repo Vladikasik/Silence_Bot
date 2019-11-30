@@ -73,6 +73,7 @@ class tr:
 		#не трогайте пж
 		with open(r'operations.json', 'r') as f:
 			data = json.loads(f.read())
+		f.close()
 		trans_inf = {
 					'From: ': self.Username_1,
 					'To: ': self.Username_2,
@@ -81,6 +82,7 @@ class tr:
 		data.append(trans_inf)
 		with open(r'operations.json', 'w') as file:
 			json.dump(data, file, indent=2, ensure_ascii=False)
+		file.close()
 
 
 
