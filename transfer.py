@@ -2,6 +2,7 @@ import yadisk
 import var
 import json
 import os
+import time
 
 class tr:
 
@@ -77,7 +78,8 @@ class tr:
 		trans_inf = {
 					'From: ': self.Username_1,
 					'To: ': self.Username_2,
-					'Value: ': self.transfer_sum
+					'Value: ': self.transfer_sum,
+					'Time: ': time.strftime('%H %M %S %% %d %b')
 					}
 		data.append(trans_inf)
 		with open(r'operations.json', 'w') as file:

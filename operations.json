@@ -8,5 +8,17 @@
     "From: ": "SemyonDrozdov",
     "To: ": "vlad_ain",
     "Value: ": "999"
+  },
+  {
+    "From: ": "vlad_ain",
+    "To: ": "vlad_ain",
+    "Value: ": "100",
+    "Time: ": "Sat Nov 30 16:30:34 2019"
+  },
+  {
+    "From: ": "vlad_ain",
+    "To: ": "vlad_ain",
+    "Value: ": "100",
+    "Time: ": "16 32 47 % 30 Nov"
   }
 ]
