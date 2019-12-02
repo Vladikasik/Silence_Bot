@@ -7,7 +7,7 @@ import time
 class tr:
 
 
-	def __init__(self,Username_1,message,mes):
+	def __init__(self,Username_1,message):
 		self.Username_1 = Username_1
 		self.mes = mes
 		self.Username_2,self.transfer_sum = message.split()
