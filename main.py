@@ -48,7 +48,6 @@ def main():
             print(a)
         else:
             bot.send_message(message.chat.id,messages.dk)
-            bot.send_message(message.chat.id,messages.dk)
 
 
     def trans(mes):
