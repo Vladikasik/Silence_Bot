@@ -72,7 +72,7 @@ class tr:
 				json.dump(self.data, file, indent=2, ensure_ascii=False)
 
 		#не трогайте пж
-		with open(r'../database/operations.json', 'r') as f:
+		with open(r'../DataBase/operations.json', 'r') as f:
 			data = json.loads(f.read())
 		f.close()
 		time1 = time.strftime('%H %M %S %d %m').split()
@@ -89,7 +89,7 @@ class tr:
 					'Time: ': time2
 					}
 		data.append(trans_inf)
-		with open(r'../database/operations.json', 'w') as file:
+		with open(r'../DataBase/operations.json', 'w') as file:
 			json.dump(data, file, indent=2, ensure_ascii=False)
 		file.close()
 
