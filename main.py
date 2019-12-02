@@ -43,6 +43,8 @@ def main():
                 bot.send_message(message.chat.id, messages.tr),
                 trans
                     )
+        else:
+            exit(0)
 
 
     def trans(mes):
@@ -68,13 +70,9 @@ def main():
 
         if correct:
             trans_main(mes)
+            bot.send_message(mes,messages.dn)
         else:
             mes_wrong(mes)
-
-
-
-
-
 
     bot.polling()
 
