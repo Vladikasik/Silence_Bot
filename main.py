@@ -74,7 +74,7 @@ def main():
 
         if correct:
             trans_main(mes)
-            bot.send_message(mes,messages.dn)
+            bot.send_message(mes.chat.id,messages.dn)
         else:
             mes_wrong(mes)
 
