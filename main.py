@@ -43,9 +43,12 @@ def main():
                 bot.send_message(message.chat.id, messages.tr),
                 trans
                     )
-        else:
-            a == 1 /0
+        elif message.text = 'KillTheBotRightNow':
+            a = 1/0
             print(a)
+        else:
+            bot.send_message(message.chat.id,messages.dk)
+            bot.send_message(message.chat.id,messages.dk)
 
 
     def trans(mes):
