@@ -33,19 +33,44 @@ def main():
             bot.send_message(message.chat.id,mes)
             print('Message sent')
             print('###')
-        else:
+        elif message.text == keyboard.bttn_send:
         # elif message.text == keyboard.bttn_info:
             # mes = bot.send_message(message.chat.id, messages.tr)
             # mes()
             print('else')
-            bot.register_next_step_handler(bot.send_message(message.chat.id, messages.tr),trans)
+            bot.register_next_step_handler\
+                    (
+                bot.send_message(message.chat.id, messages.tr),
+                trans
+                    )
 
 
     def trans(mes):
-        a = transfer.tr(mes.from_user.username, mes.text)
-        a.start()
-        a.printt()
-        a.main()
+        def trans_main(mes):
+            a = transfer.tr(mes.from_user.username, mes.text)
+            a.start()
+            a.printt()
+            a.main()
+        def mes_wrong(mes):
+            bot.send_message(mes.chat.id,messages.wr)
+
+        mes_massiv = mes.text.split()
+        intt = '0123456789'
+        correct = False
+
+        if len(mes_massiv) == 2:
+            if mes_massiv[0] == str(mes_massiv[0]):
+                for i in mes_massiv[1]:
+                    if i in intt:
+                        correct = True
+                    else:
+                        correct = False
+
+        if correct:
+            trans_main(mes)
+        else:
+            mes_wrong(mes)
+
 
 
 
