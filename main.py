@@ -65,11 +65,12 @@ def main():
 
         if len(mes_massiv) == 2:
             if mes_massiv[0] == str(mes_massiv[0]):
-                for i in mes_massiv[1]:
-                    if i in intt:
-                        correct = True
-                    else:
-                        correct = False
+                if int(mes_massiv[1]) > 0:
+                    for i in mes_massiv[1]:
+                        if i in intt:
+                            correct = True
+                        else:
+                            correct = False
 
         if correct:
             trans_main(mes)
