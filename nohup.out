@@ -190,3 +190,293 @@ Traceback (most recent call last):
   File "main.py", line 47, in main_func
     a = 1/0
 ZeroDivisionError: division by zero
+2019-12-03 11:39:43,351 (util.py:65 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:\n[b\'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 276, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 246, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.7/dist-packages/telebot/apihelper.py", line 180, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.7/dist-packages/telebot/apihelper.py", line 56, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.7/dist-packages/telebot/apihelper.py", line 75, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']
+"
+2019-12-03 11:39:43,352 (__init__.py:417 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']"
+<telebot.TeleBot object at 0x7f031f50f550>
+vlad_ain -1000
+💰Посмотреть баланс
+{'FirstName': 'Egor', 'SecondName': 'Salygin', 'Username': 'salyg1n', 'Balance': '696', 'Status': 'Student'}
+Имя: Egor Salygin
+Юзернэйм: salyg1n
+Баланс: 696
+Статус: Student
+Message sent
+###
+💰Посмотреть баланс
+{'FirstName': 'Egor', 'SecondName': 'Salygin', 'Username': 'salyg1n', 'Balance': '696', 'Status': 'Student'}
+Имя: Egor Salygin
+Юзернэйм: salyg1n
+Баланс: 696
+Статус: Student
+💵Отправить деньги
+else
+Message sent
+###
+💰Посмотреть баланс
+{'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9999897003', 'Status': 'Student'}
+Имя: Семён Дроздов
+Юзернэйм: SemyonDrozdov
+Баланс: 9999897003
+Статус: Student
+💰Посмотреть баланс
+{'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9999897003', 'Status': 'Student'}
+Имя: Семён Дроздов
+Юзернэйм: SemyonDrozdov
+Баланс: 9999897003
+Статус: Student
+Message sent
+###
+Message sent
+###
+💰Посмотреть баланс
+{'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9999897003', 'Status': 'Student'}
+Имя: Семён Дроздов
+Юзернэйм: SemyonDrozdov
+Баланс: 9999897003
+Статус: Student
+Message sent
+###
+💵Отправить деньги
+else
+💰Посмотреть баланс
+{'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9999897003', 'Status': 'Student'}
+Имя: Семён Дроздов
+Юзернэйм: SemyonDrozdov
+Баланс: 9999897003
+Статус: Student
+Message sent
+###
+💵Отправить деньги
+else
+shalom
+1
+2
+3
+4
+1
+2
+3
+4
+SemyonDrozdov vlad_ain
+9999897003 100101000
+###
+Balance 1 was changed
+Balance 2 was changed
+💰Посмотреть баланс
+{'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9989897004', 'Status': 'Student'}
+Имя: Семён Дроздов
+Юзернэйм: SemyonDrozdov
+Баланс: 9989897004
+Статус: Student
+Message sent
+###
+💵Отправить деньги
+else
+shalom
+1
+2
+3
+4
+1
+2
+3
+4
+SemyonDrozdov vlad_ain
+9989897004 110100999
+###
+Balance 1 was changed
+Balance 2 was changed
+💰Посмотреть баланс
+{'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9990897003', 'Status': 'Student'}
+Имя: Семён Дроздов
+Юзернэйм: SemyonDrozdov
+Баланс: 9990897003
+Статус: Student
+Message sent
+###
+💵Отправить деньги
+else
+shalom
+1
+2
+3
+4
+1
+2
+3
+4
+SemyonDrozdov vlad_ain
+9990897003 109101000
+###
+Balance 1 was changed
+Balance 2 was changed
+💰Посмотреть баланс
+{'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9990897002', 'Status': 'Student'}
+Имя: Семён Дроздов
+Юзернэйм: SemyonDrozdov
+Баланс: 9990897002
+Статус: Student
+Message sent
+###
+💵Отправить деньги
+else
+shalom
+1
+2
+3
+4
+1
+2
+3
+4
+SemyonDrozdov vlad_ain
+9990897002 109101001
+###
+Balance 1 was changed
+Balance 2 was changed
+💰Посмотреть баланс
+{'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9990897003', 'Status': 'Student'}
+Имя: Семён Дроздов
+Юзернэйм: SemyonDrozdov
+Баланс: 9990897003
+Статус: Student
+Message sent
+###
+2019-12-03 11:56:04,753 (util.py:65 WorkerThread1) ERROR - TeleBot: "ValueError occurred, args=("invalid literal for int() with base 10: 'баланс'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 68, in trans
+    if int(mes_massiv[1]) > 0:
+ValueError: invalid literal for int() with base 10: 'баланс'
+"
+<telebot.TeleBot object at 0x7f1cedddc550>
+💰Посмотреть баланс
+{'FirstName': 'DefaultTest', 'SecondName': 'None', 'Username': 'vlad_ain', 'Balance': '109101000', 'Status': 'Student'}
+Имя: DefaultTest None
+Юзернэйм: vlad_ain
+Баланс: 109101000
+Статус: Student
+💰Посмотреть баланс
+{'FirstName': 'Egor', 'SecondName': 'Salygin', 'Username': 'salyg1n', 'Balance': '696', 'Status': 'Student'}
+Имя: Egor Salygin
+Юзернэйм: salyg1n
+Баланс: 696
+Статус: Student
+Message sent
+###
+💰Посмотреть баланс
+{'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9990897003', 'Status': 'Student'}
+Имя: Семён Дроздов
+Юзернэйм: SemyonDrozdov
+Баланс: 9990897003
+Статус: Student
+Message sent
+###
+Message sent
+###
+💰Посмотреть баланс
+{'FirstName': 'DefaultTest', 'SecondName': 'None', 'Username': 'vlad_ain', 'Balance': '109101000', 'Status': 'Student'}
+Имя: DefaultTest None
+Юзернэйм: vlad_ain
+Баланс: 109101000
+Статус: Student
+Message sent
+###
+💵Отправить деньги
+else
+Traceback (most recent call last):
+  File "main.py", line 84, in <module>
+    main()
+  File "main.py", line 81, in main
+    bot.polling()
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 389, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 413, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 108, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/usr/lib/python3/dist-packages/six.py", line 693, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 68, in trans
+    if int(mes_massiv[1]) > 0:
+ValueError: invalid literal for int() with base 10: 'баланс'
+2019-12-03 12:09:16,942 (util.py:65 WorkerThread2) ERROR - TeleBot: "ValueError occurred, args=("invalid literal for int() with base 10: '--100'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 75, in trans
+    if int(mes_massiv[1]) > 0:
+ValueError: invalid literal for int() with base 10: '--100'
+"
+<telebot.TeleBot object at 0x7fa3c088c550>
+vlad_ain 1
+💵Отправить деньги
+else
+shalom
+1
+2
+3
+4
+1
+2
+3
+4
+salyg1n vlad_ain
+697 109100999
+###
+Balance 1 was changed
+Balance 2 was changed
+💰Посмотреть баланс
+{'FirstName': 'Egor', 'SecondName': 'Salygin', 'Username': 'salyg1n', 'Balance': '696', 'Status': 'Student'}
+Имя: Egor Salygin
+Юзернэйм: salyg1n
+Баланс: 696
+Статус: Student
+Message sent
+###
+💵Отправить деньги
+else
+💵Отправить деньги
+else
+Traceback (most recent call last):
+  File "main.py", line 90, in <module>
+    main()
+  File "main.py", line 87, in main
+    bot.polling()
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 389, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 413, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 108, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/usr/lib/python3/dist-packages/six.py", line 693, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 75, in trans
+    if int(mes_massiv[1]) > 0:
+ValueError: invalid literal for int() with base 10: '--100'
+  File "main.py", line 73
+    break
+        ^
+TabError: inconsistent use of tabs and spaces in indentation
