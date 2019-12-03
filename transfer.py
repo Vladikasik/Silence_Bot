@@ -16,6 +16,8 @@ class tr:
 		self.available_to_trans = False
 		self.data = None
 		self.indexes = [0,0]
+		self.available_to_trans_1 = False
+
 
 
 	def start(self):
@@ -40,14 +42,16 @@ class tr:
 				for j in i:
 					if j == 'Username':
 						if i['Username'] == self.Username_2:
+							self.available_to_trans_1 = True
 							self.balance_2 = int(i['Balance'])
 							self.indexes[1] = sch
 
 
 
 	def is_available(self):
-		if int(self.transfer_sum) <= self.balance_1:
+		if int(self.transfer_sum) <= self.balance_1 and self.available_to_trans_1:
 			self.available_to_trans = True
+
 
 		return self.available_to_trans
 
