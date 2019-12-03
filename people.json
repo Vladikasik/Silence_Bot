@@ -3,21 +3,28 @@
     "FirstName": "DefaultTest",
     "SecondName": "None",
     "Username": "vlad_ain",
-    "Balance": "100101996",
+    "Balance": "109101000",
     "Status": "Student"
   },
   {
     "FirstName": "Семён",
     "SecondName": "Дроздов",
     "Username": "SemyonDrozdov",
-    "Balance": "9999897003",
+    "Balance": "9990897003",
     "Status": "Student"
   },
   {
     "FirstName": "Leonid",
     "SecondName": "Ivanov",
     "Username": "leo_ivanov",
-    "Balance": "78776",
+    "Balance": "79076",
     "Status": "Teacher"
+  },
+  {
+    "FirstName": "Egor",
+    "SecondName": "Salygin",
+    "Username": "salyg1n",
+    "Balance": "696",
+    "Status": "Student"
   }
 ]

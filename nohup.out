@@ -1,0 +1,192 @@
+  File "main.py", line 46
+    elif message.text = 'KillTheBotRightNow':
+                      ^
+SyntaxError: invalid syntax
+  File "main.py", line 46
+    elif message.text = 'KillTheBotRightNow':
+                      ^
+SyntaxError: invalid syntax
+2019-12-02 22:41:40,718 (util.py:65 WorkerThread1) ERROR - TeleBot: "ZeroDivisionError occurred, args=('division by zero',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 47, in main_func
+    a = 1/0
+ZeroDivisionError: division by zero
+"
+<telebot.TeleBot object at 0x7fa7d8f9d2b0>
+💰Посмотреть баланс
+{'FirstName': 'DefaultTest', 'SecondName': 'None', 'Username': 'vlad_ain', 'Balance': '100101996', 'Status': 'Student'}
+Имя: DefaultTest None
+Юзернэйм: vlad_ain
+Баланс: 100101996
+Статус: Student
+Message sent
+###
+KillTheBotRightNow
+Traceback (most recent call last):
+  File "main.py", line 84, in <module>
+    main()
+  File "main.py", line 81, in main
+    bot.polling()
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 389, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 413, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 108, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/usr/lib/python3/dist-packages/six.py", line 693, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 47, in main_func
+    a = 1/0
+ZeroDivisionError: division by zero
+2019-12-02 22:41:57,783 (util.py:65 WorkerThread1) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:\n[b\'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 77, in trans
+    bot.send_message(mes,messages.dn)
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 598, in send_message
+    reply_markup, parse_mode, disable_notification))
+  File "/usr/local/lib/python3.7/dist-packages/telebot/apihelper.py", line 140, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/usr/local/lib/python3.7/dist-packages/telebot/apihelper.py", line 56, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.7/dist-packages/telebot/apihelper.py", line 75, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}']
+"
+2019-12-02 22:41:57,784 (__init__.py:417 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}']"
+<telebot.TeleBot object at 0x7fc872b3b588>
+💵Отправить деньги
+else
+shalom
+1
+2
+3
+1
+2
+3
+vlad_ain SemenDrozdov
+100101996 0
+###
+Balance 1 was changed
+Balance 2 was changed
+2019-12-03 10:21:47,629 (util.py:65 WorkerThread1) ERROR - TeleBot: "ZeroDivisionError occurred, args=('division by zero',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 47, in main_func
+    a = 1/0
+ZeroDivisionError: division by zero
+"
+<telebot.TeleBot object at 0x7efe1cfc8588>
+💰Посмотреть баланс
+{'FirstName': 'DefaultTest', 'SecondName': 'None', 'Username': 'vlad_ain', 'Balance': '100101696', 'Status': 'Student'}
+Имя: DefaultTest None
+Юзернэйм: vlad_ain
+Баланс: 100101696
+Статус: Student
+Message sent
+###
+{'FirstName': 'Egor', 'SecondName': 'Salygin', 'Username': 'salyg1n', 'Balance': '0', 'Status': 'Student'}
+###
+data 1 [{'FirstName': 'DefaultTest', 'SecondName': 'None', 'Username': 'vlad_ain', 'Balance': '100101696', 'Status': 'Student'}, {'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9999897003', 'Status': 'Student'}, {'FirstName': 'Leonid', 'SecondName': 'Ivanov', 'Username': 'leo_ivanov', 'Balance': '79076', 'Status': 'Teacher'}]
+data 2 [{'FirstName': 'DefaultTest', 'SecondName': 'None', 'Username': 'vlad_ain', 'Balance': '100101696', 'Status': 'Student'}, {'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9999897003', 'Status': 'Student'}, {'FirstName': 'Leonid', 'SecondName': 'Ivanov', 'Username': 'leo_ivanov', 'Balance': '79076', 'Status': 'Teacher'}, {'FirstName': 'Egor', 'SecondName': 'Salygin', 'Username': 'salyg1n', 'Balance': '0', 'Status': 'Student'}]
+###
+💰Посмотреть баланс
+{'FirstName': 'Egor', 'SecondName': 'Salygin', 'Username': 'salyg1n', 'Balance': '0', 'Status': 'Student'}
+Имя: Egor Salygin
+Юзернэйм: salyg1n
+Баланс: 0
+Статус: Student
+Message sent
+###
+💵Отправить деньги
+else
+shalom
+1
+2
+3
+4
+1
+2
+3
+4
+vlad_ain salyg1n
+100101696 0
+###
+Balance 1 was changed
+Balance 2 was changed
+💰Посмотреть баланс
+{'FirstName': 'Egor', 'SecondName': 'Salygin', 'Username': 'salyg1n', 'Balance': '696', 'Status': 'Student'}
+Имя: Egor Salygin
+Юзернэйм: salyg1n
+Баланс: 696
+Статус: Student
+Message sent
+###
+₽::73₽!
+KillTheBotRightNow
+Traceback (most recent call last):
+  File "main.py", line 83, in <module>
+    main()
+  File "main.py", line 80, in main
+    bot.polling()
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 389, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 413, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 108, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/usr/lib/python3/dist-packages/six.py", line 693, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 47, in main_func
+    a = 1/0
+ZeroDivisionError: division by zero
+2019-12-03 11:21:31,756 (util.py:65 WorkerThread1) ERROR - TeleBot: "ZeroDivisionError occurred, args=('division by zero',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 47, in main_func
+    a = 1/0
+ZeroDivisionError: division by zero
+"
+<telebot.TeleBot object at 0x7fbed1bca550>
+KillTheBotRightNow
+💰Посмотреть баланс
+{'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9999897003', 'Status': 'Student'}
+Имя: Семён Дроздов
+Юзернэйм: SemyonDrozdov
+Баланс: 9999897003
+Статус: Student
+💰Посмотреть баланс
+{'FirstName': 'Семён', 'SecondName': 'Дроздов', 'Username': 'SemyonDrozdov', 'Balance': '9999897003', 'Status': 'Student'}
+Имя: Семён Дроздов
+Юзернэйм: SemyonDrozdov
+Баланс: 9999897003
+Статус: Student
+Traceback (most recent call last):
+  File "main.py", line 83, in <module>
+    main()
+  File "main.py", line 80, in main
+    bot.polling()
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 389, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/usr/local/lib/python3.7/dist-packages/telebot/__init__.py", line 413, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 108, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/usr/lib/python3/dist-packages/six.py", line 693, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/dist-packages/telebot/util.py", line 59, in run
+    task(*args, **kwargs)
+  File "main.py", line 47, in main_func
+    a = 1/0
+ZeroDivisionError: division by zero
