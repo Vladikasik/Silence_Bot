@@ -6,7 +6,7 @@ def people():
             for j in i:
                 print(i[j])
 def operations():
-    with open('operations', 'r') as f:
+    with open(r'../DataBase/operations.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
             for j in i:
