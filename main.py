@@ -67,10 +67,9 @@ def main():
             if mes_massiv[0] == str(mes_massiv[0]):
                 for i in mes_massiv[1]:
                     if i in intt:
-                    		correct = True
+                        correct = True
                     else:
-                    		correct = False
-								break
+                        break   
 
         if correct:
             if int(mes_massiv[1]) > 0:
