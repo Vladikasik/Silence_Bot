@@ -60,6 +60,7 @@ def main():
             bot.send_message(mes.chat.id,messages.wr)
 
         mes_massiv = mes.text.split()
+        mes_massiv[1] = list(mes_massiv[1])
         intt = '0123456789'
         correct = False
 
