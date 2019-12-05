@@ -60,16 +60,16 @@ def main():
             bot.send_message(mes.chat.id,messages.wr)
 
         mes_massiv = mes.text.split()
-        mes_massiv[1] = list(mes_massiv[1])
+
         intt = '0123456789'
         correct = False
 
         if len(mes_massiv) == 2:
-            if mes_massiv[0] == str(mes_massiv[0]):
-                if type(mes_massiv[1]) == int:
-                    correct = True
-                else:
-                    correct = False
+            mes_massiv[1] = list(mes_massiv[1])
+            if type(mes_massiv[1]) == int:
+                correct = True
+            else:
+                correct = False
 
         if correct:
             if int(mes_massiv[1]) > 0:
