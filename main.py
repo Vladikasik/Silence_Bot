@@ -59,7 +59,7 @@ def main():
         def mes_wrong(mes):
             bot.send_message(mes.chat.id,messages.wr)
 
-        mes_massiv = mes.text.split()
+        mes_massiv = mes.text.split(' ')
 
         intt = '0123456789'
         correct = False
