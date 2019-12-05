@@ -69,7 +69,8 @@ def main():
                     if i in intt:
                         correct = True
                     else:
-                        break   
+                        correct = False
+                        break
 
         if correct:
             if int(mes_massiv[1]) > 0:

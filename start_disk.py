@@ -1,6 +1,6 @@
 def main(FirstName,SecondName,Username):
     import json
-    import yadisk
+
     import var
     import os
 

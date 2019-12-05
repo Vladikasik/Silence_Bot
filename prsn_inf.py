@@ -1,4 +1,4 @@
-import yadisk
+
 import var
 import json
 import os
