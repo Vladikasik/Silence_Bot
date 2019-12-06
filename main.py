@@ -13,10 +13,9 @@ def main():
     # Функйия которая реагирует на команды
     @bot.message_handler(commands=['start'])
     def start_message(message):
-        bot.send_message(message.chat.id, messages.start_command, reply_markup=keyboard.markup)
+
         bot.register_next_step_handler(
             bot.send_message(message.chat.id, messages.start_command, reply_markup=keyboard.markup),
-
             st_ds)
 
     def st_ds(message):
@@ -42,11 +41,10 @@ def main():
             # mes = bot.send_message(message.chat.id, messages.tr)
             # mes()
             print('else')
-            bot.register_next_step_handler \
-                    (
+            bot.register_next_step_handler(
                     bot.send_message(message.chat.id, messages.tr),
                     trans
-                )
+                                            )
         elif message.text == 'KillTheBotRightNow':
             a = 1 / 0
             print(a)
