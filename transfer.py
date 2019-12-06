@@ -8,8 +8,8 @@ class tr:
 
 
 	def __init__(self,Username_1,message):
-		self.Username_1 = Username_1
 
+		self.User_1_id = Username_1
 		self.Username_2,self.transfer_sum = message.split()
 		self.balance_1 = 0
 		self.balance_2 = 0
@@ -29,10 +29,10 @@ class tr:
 				sch+=1
 				print(sch)
 				for j in i:
-					if j == 'Username':
-						if i['Username'] == self.Username_1:
-							self.balance_1 = int(i['Balance'])
-							self.indexes[0] = sch
+					if i['TelegramChatId'] == self.User_1_id:
+						self.balance_1 = int(i['Balance'])
+						self.indexes[0] = sch
+
 		sch = 0
 		with open(r'people.json', 'r') as f:
 			data = json.loads(f.read())
@@ -41,7 +41,7 @@ class tr:
 				print(sch)
 				for j in i:
 					if j == 'Username':
-						if i['Username'] == self.Username_2:
+						if i['TelegramChatId'] == self.Username_2:
 							self.available_to_trans_1 = True
 							self.balance_2 = int(i['Balance'])
 							self.indexes[1] = sch
@@ -57,7 +57,7 @@ class tr:
 
 
 	def printt(self):
-		print(self.Username_1,self.Username_2)
+		print(self.User_1_id, self.Username_2)
 		print(self.balance_1,self.balance_2)
 
 		print('###')
@@ -88,7 +88,7 @@ class tr:
 			time2 += time3[i]
 
 		trans_inf = {
-					'From: ': self.Username_1,
+					'From: ': self.User_1_id,
 					'To: ': self.Username_2,
 					'Value: ': self.transfer_sum,
 					'Time: ': time2

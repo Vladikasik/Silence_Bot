@@ -51,7 +51,7 @@ def main():
     def trans(mes):
 
         def trans_main(mes):
-            a = transfer.tr(mes.from_user.username, mes.text)
+            a = transfer.tr(mes.chat, mes.text)
             a.start()
 
             if a.is_available():
@@ -77,10 +77,9 @@ def main():
                 else:
                     correct = False
                     break
-
+        sum_masiv = 0
         if correct:
             print('Sum transfer is good')
-            sum_masiv = 0
 
             for i in mes_massiv[1]:
                 sum_masiv += int(i)
