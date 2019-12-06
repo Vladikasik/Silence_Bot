@@ -51,11 +51,16 @@ def main():
 
 
     def trans(mes):
+
         def trans_main(mes):
             a = transfer.tr(mes.from_user.username, mes.text)
             a.start()
             a.printt()
-            a.main()
+            if a.is_available():
+                a.main()
+            else:
+                mes_wrong(mes)
+
         def mes_wrong(mes):
             bot.send_message(mes.chat.id,messages.wr)
 
