@@ -76,6 +76,7 @@ class tr:
 
 			with open('/home/project/database/users.json', 'w') as file:
 				json.dump(self.data, file, indent=2, ensure_ascii=False)
+			file.close()
 
 		#не трогайте пж
 		with open(r'../database/operations.json', 'r') as f:
