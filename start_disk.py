@@ -21,9 +21,9 @@ def main(id,FirstName,SecondName):
         data = json.loads(f.read())
         for i in data:
             for j in i:
-                if j == 'Username':
+                if j == 'Id':
                     us.append(i[j])
-        if Username in us:
+        if id in us:
             newUser = False
         else:
             newUser = True
