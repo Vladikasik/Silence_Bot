@@ -57,7 +57,7 @@ class tr:
 
 
 	def printt(self):
-		print(self.transfer_sum)
+		print(self.transfer_sum,self.data[self.indexes[0]-1]['Balance'])
 		print(self.User_1_id, self.Username_2)
 		print(self.balance_1,self.balance_2)
 
