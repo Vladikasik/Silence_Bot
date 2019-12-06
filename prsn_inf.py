@@ -6,6 +6,7 @@ import os
 def info(id):
     us = []
     j = "ahah"
+    print(id)
     with open('/home/project/database/users.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
@@ -14,4 +15,5 @@ def info(id):
                 print(i)
                 j = i
                 break
+    f.close()
     return j
