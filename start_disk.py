@@ -24,12 +24,13 @@ def main(Id, message):
         data = json.loads(f.read())
         for i in data:
             if i['InviteCode'] == message:
-                if i['TelegramChatId'] != '':
+                if i['TelegramChatId'] == '':
                     data[i]['TelegramChatId'] = Id
                     mess = 'done'
                 else:
                     mess = 'had'
     f.close()
+    print(mess)
 
     with open('/home/project/database/users.json', 'w') as file:
         json.dump(data, file, indent=2, ensure_ascii=False)
