@@ -8,7 +8,7 @@ def main():
     import transfer
 
     bot = telebot.TeleBot(var.token_of_bot)
-    print(bot)
+
 
     # Функйия которая реагирует на команды
     @bot.message_handler(commands=['start'])
@@ -28,19 +28,16 @@ def main():
     # Функция которая реагирует на текст из кнопок
     @bot.message_handler(func=lambda message: True)
     def main_func(message):
-        print(message.text)
+        print(message.text,message.from_user.username)
         if message.text == keyboard.bttn_info:
             per = prsn_inf.info(message.chat.id)
             print(per)
             mes = messages.inf(per)
             bot.send_message(message.chat.id, mes)
-            print('Message sent')
-            print('###')
         elif message.text == keyboard.bttn_send:
             # elif message.text == keyboard.bttn_info:
             # mes = bot.send_message(message.chat.id, messages.tr)
             # mes()
-            print('else')
             bot.register_next_step_handler(
                     bot.send_message(message.chat.id, messages.tr),
                     trans
@@ -67,7 +64,7 @@ def main():
             bot.send_message(mes.chat.id, messages.wr)
 
         mes_massiv = mes.text.split(' ')
-        print(mes_massiv)
+
         intt = '0123456789'
         correct = False
 
