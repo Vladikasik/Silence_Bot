@@ -35,7 +35,7 @@ elif d == 'T' or d == 't':
 
 
 
-with open('people.json', 'w') as file:
+with open('/home/project/database/users.json', 'w') as file:
     json.dump(data, file, indent=2, ensure_ascii=False)
 
 file.close()

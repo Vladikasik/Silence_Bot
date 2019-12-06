@@ -74,11 +74,11 @@ class tr:
 				int(self.data[self.indexes[1] - 1]['Balance']) + int(self.transfer_sum))
 			print('Balance 2 was changed')
 
-			with open('people.json', 'w') as file:
+			with open('/home/project/database/users.json', 'w') as file:
 				json.dump(self.data, file, indent=2, ensure_ascii=False)
 
 		#не трогайте пж
-		with open(r'/home/project/database/users.json', 'r') as f:
+		with open(r'../database/operations.json', 'r') as f:
 			data = json.loads(f.read())
 		f.close()
 
@@ -96,7 +96,7 @@ class tr:
 					'Time: ': time2
 					}
 		data.append(trans_inf)
-		
+
 		with open(r'../database/operations.json', 'w') as file:
 			json.dump(data, file, indent=2, ensure_ascii=False)
 		file.close()
