@@ -21,29 +21,28 @@ class tr:
 
 
 	def start(self):
-		print('shalom')
 		sch = 0
 		with open(r'/home/project/database/users.json', 'r') as f:
 			self.data = json.loads(f.read())
 			for i in self.data:
 				sch+=1
-				print(sch)
-				for j in i:
-					if i['TelegramChatId'] == self.User_1_id:
-						self.balance_1 = int(i['Balance'])
-						self.indexes[0] = sch
+
+				if i['TelegramChatId'] == self.User_1_id:
+					self.balance_1 = int(i['Balance'])
+					self.indexes[0] = sch
+
 
 		sch = 0
 		with open(r'/home/project/database/users.json', 'r') as f:
 			data = json.loads(f.read())
 			for i in data:
 				sch+=1
-				print(sch)
-				for j in i:
-					if i['Surname'] == self.Username_2:
-						self.available_to_trans_1 = True
-						self.balance_2 = int(i['Balance'])
-						self.indexes[1] = sch
+				
+				if i['Surname'] == self.Username_2:
+					self.available_to_trans_1 = True
+					self.balance_2 = int(i['Balance'])
+					self.indexes[1] = sch
+
 
 
 
