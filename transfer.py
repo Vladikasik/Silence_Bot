@@ -31,7 +31,7 @@ class tr:
 					self.balance_1 = int(i['Balance'])
 					self.indexes[0] = sch
 
-
+		f.close()
 		sch = 0
 		with open(r'/home/project/database/users.json', 'r') as f:
 			data = json.loads(f.read())
@@ -42,6 +42,7 @@ class tr:
 					self.available_to_trans_1 = True
 					self.balance_2 = int(i['Balance'])
 					self.indexes[1] = sch
+		f.close()
 
 
 
@@ -62,7 +63,7 @@ class tr:
 		print('###')
 
 	def main(self):
-
+		print(self.indexes)
 		if self.is_available():
 			self.data[self.indexes[0]-1]['Balance'] = str(
 				int(self.data[self.indexes[0]-1]['Balance']) -int(self.transfer_sum))
