@@ -10,7 +10,7 @@ def info(id):
     with open('/home/project/database/users.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
-            if i["Id"] == str(id):
+            if i["InviteCode"] == str(id):
                 print('info')
                 print(i)
                 j = i
