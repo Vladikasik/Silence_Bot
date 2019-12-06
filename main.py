@@ -55,9 +55,10 @@ def main():
         def trans_main(mes):
             a = transfer.tr(mes.from_user.username, mes.text)
             a.start()
-            a.printt()
+
             if a.is_available():
                 a.main()
+                a.printt()
             else:
                 mes_wrong(mes)
 
