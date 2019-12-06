@@ -27,7 +27,7 @@ class tr:
 			for i in self.data:
 				sch+=1
 
-				if i['TelegramChatId'] == self.User_1_id:
+				if i['TelegramChatId'] == str(self.User_1_id):
 					self.balance_1 = int(i['Balance'])
 					self.indexes[0] = sch
 
@@ -37,7 +37,7 @@ class tr:
 			data = json.loads(f.read())
 			for i in data:
 				sch+=1
-				
+
 				if i['Surname'] == self.Username_2:
 					self.available_to_trans_1 = True
 					self.balance_2 = int(i['Balance'])
