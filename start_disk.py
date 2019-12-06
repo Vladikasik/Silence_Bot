@@ -5,7 +5,7 @@ def main(id,FirstName,SecondName):
     import os
 
 
-    person_dict = {'Id' : id,
+    person_dict = {'Id' : str(id),
                    'FirstName' : str(FirstName),
                    'SecondName' : str(SecondName),
                    'Balance' : '0',
