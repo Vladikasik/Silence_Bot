@@ -25,7 +25,8 @@ def main(Id, message):
         for i in data:
             if i['InviteCode'] == message:
                 if i['TelegramChatId'] == '':
-                    data[i]['TelegramChatId'] = str(Id)
+                    indexx = data.index(i)
+                    data[indexx]['TelegramChatId'] = str(Id)
                     mess = 'done'
                 else:
                     mess = 'had'
