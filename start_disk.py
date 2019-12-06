@@ -24,8 +24,8 @@ def main(Id, message):
         data = json.loads(f.read())
         for i in data:
             if i['InviteCode'] == message:
-                if i['Id'] != '':
-                    data[i]['Id'] = Id
+                if i['TelegramChatId'] != '':
+                    data[i]['TelegramChatId'] = Id
                     mess = 'done'
                 else:
                     mess = 'had'
