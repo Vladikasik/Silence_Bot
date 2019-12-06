@@ -10,7 +10,7 @@ with open('/home/project/database/users.json', 'r') as f:
 f.close()
 
 if d == 'S' or d == 's':
-    person_dict = {"Id": str(id),
+    person_dict = {"TelegramChatId": str(id),
                    "WebsiteUsername": "",
                    "WebsitePassword": "",
                    "WebsiteSsid": "",
@@ -21,7 +21,7 @@ if d == 'S' or d == 's':
                    "Group": "Student"}
     data.append(person_dict)
 elif d == 'T' or d == 't':
-    person_dict = {"Id": str(id),
+    person_dict = {"TelegramChatId": str(id),
                    "WebsiteUsername": "",
                    "WebsitePassword": "",
                    "WebsiteSsid": "",
