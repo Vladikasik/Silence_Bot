@@ -51,7 +51,7 @@ def main():
     def trans(mes):
 
         def trans_main(mes):
-            a = transfer.tr(mes.chat, mes.text)
+            a = transfer.tr(mes.chat.id, mes.text)
             a.start()
             a.printt()
 
