@@ -17,12 +17,10 @@ def main():
         bot.register_next_step_handler(
             bot.send_message(message.chat.id, messages.start_command, reply_markup=keyboard.markup),
 
-            st_ds())
+            st_ds)
 
     def st_ds(message):
-        start_disk.main(message.chat.id,
-                            message.from_user.first_name,
-                            message.from_user.last_name)
+        start_disk.main(message.chat.id,message.text)
 
     @bot.message_handler(commands=['help'])
     def help_message(message):
