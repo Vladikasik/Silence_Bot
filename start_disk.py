@@ -20,7 +20,7 @@ def main(Id, message):
     # print('###')
     us = []
 
-    with open('/home/project/database/people.json', 'r') as f:
+    with open('/home/project/database/users.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
             if i['InviteCode'] == message:
@@ -31,6 +31,6 @@ def main(Id, message):
                     mess = 'had'
     f.close()
 
-    with open('people.json', 'w') as file:
+    with open('/home/project/database/users.json', 'w') as file:
         json.dump(data, file, indent=2, ensure_ascii=False)
     file.close()
