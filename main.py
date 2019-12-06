@@ -15,9 +15,9 @@ def main():
     def start_message(message):
         bot.send_message(message.chat.id, messages.start_command,reply_markup=keyboard.markup)
 
-        start_disk.main(message.from_user.first_name,
-                        message.from_user.last_name,
-                         message.from_user.username)
+        start_disk.main(message.chat.id,
+                        message.from_user.first_name,
+                        message.from_user.last_name)
 
     @bot.message_handler(commands=['help'])
     def help_message(message):
@@ -60,25 +60,32 @@ def main():
             bot.send_message(mes.chat.id,messages.wr)
 
         mes_massiv = mes.text.split(' ')
-
+        print(mes_massiv)
         intt = '0123456789'
         correct = False
 
         if len(mes_massiv) == 2:
             mes_massiv[1] = list(mes_massiv[1])
-            if type(mes_massiv[1]) == int:
+            for i in mes_massiv[1]:
+                if i in intt:
+
+                    correct = True
+                else:
+                    correct = False
+                    break
+        sum_masiv = 0
+        for i in mes_massiv[1]:
+            sum_masiv+=int(i)
+
+        if correct:
+            if sum_masiv > 0:
                 correct = True
             else:
                 correct = False
 
-        if correct:
-            if int(mes_massiv[1]) > 0:
-                correct = True
-            else:
-                correct = False
-
 
         if correct:
+            print('correct 2')
             trans_main(mes)
             bot.send_message(mes.chat.id,messages.dn)
         else:

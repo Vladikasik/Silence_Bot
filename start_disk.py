@@ -1,13 +1,13 @@
-def main(FirstName,SecondName,Username):
+def main(id,FirstName,SecondName):
     import json
 
     import var
     import os
 
 
-    person_dict = {'FirstName' : str(FirstName),
+    person_dict = {'Id' : id,
+                   'FirstName' : str(FirstName),
                    'SecondName' : str(SecondName),
-                   'Username' : Username,
                    'Balance' : '0',
                    'Status' : 'Student'}
 
