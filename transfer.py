@@ -81,6 +81,7 @@ class tr:
 		with open(r'/home/project/database/users.json', 'r') as f:
 			data = json.loads(f.read())
 		f.close()
+
 		time1 = time.strftime('%H %M %S %d %m').split()
 		time2 = ''
 		time3 = [':',':','_','','']
@@ -95,6 +96,7 @@ class tr:
 					'Time: ': time2
 					}
 		data.append(trans_inf)
+		
 		with open(r'../database/operations.json', 'w') as file:
 			json.dump(data, file, indent=2, ensure_ascii=False)
 		file.close()
