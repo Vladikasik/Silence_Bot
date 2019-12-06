@@ -19,7 +19,7 @@ if d == 'S' or d == 's':
                    "Name": a,
                    "Balance": "0",
                    "Group": "Student"}
-    data = data.append(person_dict)
+    data.append(person_dict)
 elif d == 'T' or d == 't':
     person_dict = {"Id": str(id),
                    "WebsiteUsername": "",
@@ -30,7 +30,7 @@ elif d == 'T' or d == 't':
                    "Name": a,
                    "Balance": "0",
                    "Group": "Teacher"}
-    data = data.append(person_dict)
+    data.append(person_dict)
 
 
 
