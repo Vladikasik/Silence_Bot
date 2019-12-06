@@ -23,8 +23,8 @@ dn = 'Перевод успешно осуществлен.'
 
 
 def inf(prsn):
-    fn = prsn['FirstName']
-    sn = prsn['SecondName']
+    fn = prsn['Name']
+    sn = prsn['Surname']
     id = prsn['Id']
     bl = prsn['Balance']
     st = prsn['Group']
