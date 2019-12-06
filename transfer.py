@@ -10,7 +10,7 @@ class tr:
 	def __init__(self,Username_1,message):
 
 		self.User_1_id = Username_1
-		self.Username_2,self.transfer_sum = message.split()
+		self.Username_2,self.transfer_sum = message.split(' ')
 		self.balance_1 = 0
 		self.balance_2 = 0
 		self.available_to_trans = False
@@ -57,6 +57,7 @@ class tr:
 
 
 	def printt(self):
+		print(self.transfer_sum)
 		print(self.User_1_id, self.Username_2)
 		print(self.balance_1,self.balance_2)
 
