@@ -28,7 +28,8 @@ def main():
     def main_func(message):
         print(message.text)
         if message.text == keyboard.bttn_info:
-            per = prsn_inf.info(message.from_user.username)
+            per = prsn_inf.info(message.chat.id)
+            print(per)
             mes = messages.inf(per)
             bot.send_message(message.chat.id,mes)
             print('Message sent')
@@ -79,9 +80,13 @@ def main():
                 else:
                     correct = False
                     break
-        sum_masiv = 0
-        for i in mes_massiv[1]:
-            sum_masiv+=int(i)
+
+        if correct:
+            print('Sum transfer is good')
+            sum_masiv = 0
+
+            for i in mes_massiv[1]:
+                sum_masiv += int(i)
 
         if correct:
             if sum_masiv > 0:

@@ -4,17 +4,16 @@ import json
 import os
 
 
-def info(Username):
+def info(id):
 
     us = []
     with open('people.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
-            for j in i:
-                if j == 'Username':
-                    if i['Username'] == Username:
-                        print(i)
-                        return i
+            if i["Id"] == str(id):
+                print(i)
+                return i
+
 def dell():
     os.remove('people.json')
                 # for k in j:

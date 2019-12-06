@@ -24,12 +24,12 @@ dn = 'Перевод успешно осуществлен.'
 def inf(prsn):
     fn = prsn['FirstName']
     sn = prsn['SecondName']
-    un = prsn['Username']
+    id = prsn['Id']
     bl = prsn['Balance']
     st = prsn['Status']
 
     message = ['Имя: ',fn,' ',sn,'\n',
-            'Юзернэйм: ', un, '\n',
+            'Id: ', id, '\n',
             'Баланс: ', bl,'\n',
             'Статус: ', st]
     print(''.join(message))
