@@ -9,7 +9,7 @@ def info(id):
     with open('/home/project/database/users.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
-            print(i["Id"], '#', +id)
+            print(i)
             if i["Id"] == str(id):
                 print('info')
                 print(i)
