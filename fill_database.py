@@ -6,6 +6,7 @@ d = input('S - student, T - teacher')
 
 with open('/home/project/database/users.json', 'r') as f:
     data = json.loads(f.read())
+    print(data)
 f.close()
 
 if d == 'S' or d == 's':
