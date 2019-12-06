@@ -9,5 +9,6 @@ def info(id):
         data = json.loads(f.read())
         for i in data:
             if i["Id"] == str(id):
+                print('info')
                 print(i)
                 return i
