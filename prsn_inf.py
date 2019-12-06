@@ -10,7 +10,7 @@ def info(id):
         data = json.loads(f.read())
         for i in data:
             print(i)
-            if i["Id"] == str(id):
+            if i["TelegramChatId"] == str(id):
                 print('info')
                 print(i)
                 j = i
