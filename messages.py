@@ -23,9 +23,9 @@ dn = 'Перевод успешно осуществлен.'
 
 
 def inf(prsn):
-    # fn = prsn['Name']
+    fn = prsn['Name']
     sn = prsn['Surname']
-    id = prsn['Id']
+    id = prsn['TelegramChatId']
     bl = prsn['Balance']
     st = prsn['Group']
 
