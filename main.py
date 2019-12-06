@@ -58,6 +58,7 @@ def main():
             if a.is_available():
                 a.main()
                 a.printt()
+                bot.send_message(mes.chat.id, messages.dn)
             else:
                 mes_wrong(mes)
 
@@ -94,7 +95,7 @@ def main():
         if correct:
             print('correct 2')
             trans_main(mes)
-            bot.send_message(mes.chat.id, messages.dn)
+
         else:
             mes_wrong(mes)
 
