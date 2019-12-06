@@ -6,11 +6,11 @@ import os
 def info(id):
     us = []
     j = "ahah"
-    print(id)
     with open('/home/project/database/users.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
-            if i["InviteCode"] == str(id):
+            print(i['Id'],id)
+            if i["Id"] == str(id):
                 print('info')
                 print(i)
                 j = i
