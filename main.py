@@ -53,6 +53,7 @@ def main():
         def trans_main(mes):
             a = transfer.tr(mes.chat, mes.text)
             a.start()
+            a.printt()
 
             if a.is_available():
                 a.main()
