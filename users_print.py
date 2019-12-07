@@ -5,7 +5,7 @@ def main():
     f.close()
     strr = ''
     for i in data:
-        strr+=i
+        strr+=str(i)
         strr+='\n'
 
 
