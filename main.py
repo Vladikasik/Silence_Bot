@@ -72,8 +72,12 @@ def main():
                     a.main_teacher()
                     bot.send_message(mes.chat.id, messages.dn)
                 else:
-                    mes_wrong(mes)
+                    mes_wrong_gr(mes)
+            else:
+                mes_wrong(mes)
 
+        def mes_wrong_group(mes):
+            bot.send_message(mes.chat.id, messages.wr_gr)
 
         def mes_wrong(mes):
             bot.send_message(mes.chat.id, messages.wr)
