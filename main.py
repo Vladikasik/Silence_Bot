@@ -86,7 +86,6 @@ def main():
             mes_massiv[1] = list(mes_massiv[1])
             for i in mes_massiv[1]:
                 if i in intt:
-
                     correct = True
                 else:
                     correct = False

@@ -40,6 +40,7 @@ class tr:
 
 				if i['Surname'] == self.Username_2:
 					self.available_to_trans_1 = True
+					print('2nd user',self.available_to_trans_1)
 					self.balance_2 = int(i['Balance'])
 					self.indexes[1] = sch
 		f.close()
