@@ -28,6 +28,5 @@ def inf(prsn):
                'Id: ', id, '\n',
                'Баланс: ', bl, '\n',
                'Статус: ', st]
-
-    message = str(message)
-    return message
+    print(''.join(message))
+    return ''.join(message)
