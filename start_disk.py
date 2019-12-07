@@ -20,6 +20,8 @@ def main(Id, message):
     # print('###')
     us = []
     done =False
+    print('##')
+    print('msg:', message.text, 'id:', message.chat.id)
     with open('/home/project/database/users.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
