@@ -52,6 +52,8 @@ class tr:
 		else:
 			self.available_to_trans = False
 
+		print(self.available_to_trans)
+
 		return self.available_to_trans
 
 
