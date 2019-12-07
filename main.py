@@ -22,7 +22,7 @@ def main():
     def st_ds(message):
         start_disk.main(message.chat.id,message.text)
 
-    @bot.message_handler(commands=['help'])
+    @bot.message_handler(commands=['users'])
     def help_message(message):
         bot.send_message(message.chat.id, messages.dk)
 
