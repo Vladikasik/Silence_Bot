@@ -52,8 +52,6 @@ class tr:
 		else:
 			self.available_to_trans = False
 
-		print(self.available_to_trans)
-
 		return self.available_to_trans
 
 
@@ -108,7 +106,7 @@ class tr:
 	def main_teacher(self):
 
 		print(self.indexes)
-		if self.is_available():
+		if self.available_to_trans_1:
 
 			self.data[self.indexes[1] - 1]['Balance'] = str(
 				int(self.data[self.indexes[1] - 1]['Balance']) + int(self.transfer_sum))

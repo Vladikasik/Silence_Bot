@@ -101,12 +101,6 @@ def main():
         if correct:
             print('Sum transfer is good')
 
-
-
-        if correct:
-            print('correct 2')
-            trans_main(mes)
-
         else:
             mes_wrong(mes)
     try:
