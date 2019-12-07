@@ -6,7 +6,6 @@ d = input('S - student, T - teacher ')
 
 with open('/home/project/database/users.json', 'r') as f:
     data = json.loads(f.read())
-    print(data)
 f.close()
 
 if d == 'S' or d == 's':
@@ -35,7 +34,6 @@ elif d == 'T' or d == 't':
 
 
 
-print(data)
 with open('/home/project/database/users.json', 'w') as file:
     json.dump(data, file, indent=2, ensure_ascii=False)
 

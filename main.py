@@ -6,6 +6,7 @@ def main():
     import start_disk
     import prsn_inf
     import transfer
+    import users_print
 
     bot = telebot.TeleBot(var.token_of_bot)
 
@@ -25,6 +26,9 @@ def main():
     def help_message(message):
         bot.send_message(message.chat.id, messages.dk)
 
+    @bot.message_handler(commands=['start'])
+    def users_printin(message):
+        bot.send_message(message.chat.id,users_print.main())
     # Функция которая реагирует на текст из кнопок
     @bot.message_handler(func=lambda message: True)
     def main_func(message):
