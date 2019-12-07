@@ -32,7 +32,8 @@ def main():
     # Функция которая реагирует на текст из кнопок
     @bot.message_handler(func=lambda message: True)
     def main_func(message):
-        print(message.text,message.from_user.username)
+        print('##')
+        print(message.text,'#',message.from_user.username)
         if message.text == keyboard.bttn_info:
             per = prsn_inf.info(message.chat.id)
             print(per)
