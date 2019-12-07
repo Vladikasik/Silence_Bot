@@ -59,24 +59,25 @@ def main():
         print('msg:', mes.text, 'id:', mes.chat.id)
         def trans_main(mes):
             per = prsn_inf.info(mes.chat.id)
-            a = transfer.tr(mes.chat.id, mes.text)
-            a.start()
-            a.printt()
+            if type(per) == dict:
+                a = transfer.tr(mes.chat.id, mes.text)
+                a.start()
+                a.printt()
 
-            # if a.is_available():
-            #     a.main()
-            #     a.printt()
-            if a.is_available():
-                if per['Group'] == 'Student':
-                    a.main()
-                    bot.send_message(mes.chat.id, messages.dn)
-                elif per['Group'] == 'Teacher':
-                    a.main_teacher()
-                    bot.send_message(mes.chat.id, messages.dn)
+                # if a.is_available():
+                #     a.main()
+                #     a.printt()
+                if a.is_available():
+                    if per['Group'] == 'Student':
+                        a.main()
+                        bot.send_message(mes.chat.id, messages.dn)
+                    elif per['Group'] == 'Teacher':
+                        a.main_teacher()
+                        bot.send_message(mes.chat.id, messages.dn)
+                    else:
+                        mes_wrong_group(mes)
                 else:
-                    mes_wrong_group(mes)
-            else:
-                mes_wrong(mes)
+                    mes_wrong(mes)
 
         def mes_wrong_group(mes):
             bot.send_message(mes.chat.id, messages.wr_gr)
