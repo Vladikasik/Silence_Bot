@@ -5,7 +5,10 @@ def main():
     f.close()
     strr = ''
     for i in data:
-        strr+=str(i)
+        for j in i:
+            strr+=str(j)
+            strr+='\n'
+        strr+='###'
         strr+='\n'
 
 
