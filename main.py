@@ -33,7 +33,7 @@ def main():
     @bot.message_handler(func=lambda message: True)
     def main_func(message):
         print('##')
-        print(message.text,'#',message.from_user.username)
+        print('msg:',message.text,'id:',message.chat.id)
         if message.text == keyboard.bttn_info:
             per = prsn_inf.info(message.chat.id)
             print(per)
