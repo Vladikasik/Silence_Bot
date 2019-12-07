@@ -5,12 +5,14 @@ import os
 
 def info(id):
     us = []
-    j = "ahah"
+    per = ""
     with open('/home/project/database/users.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
             if i["TelegramChatId"] == str(id):
-                j = i
+                per = i
                 break
+
+
     f.close()
-    return j
+    return per

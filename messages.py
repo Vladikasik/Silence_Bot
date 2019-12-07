@@ -18,15 +18,18 @@ dn = 'Перевод успешно осуществлен.'
 
 
 def inf(prsn):
-    fn = prsn['Name']
-    sn = prsn['Surname']
-    id = prsn['TelegramChatId']
-    bl = prsn['Balance']
-    st = prsn['Group']
+    if type(prsn) == dict:
+        fn = prsn['Name']
+        sn = prsn['Surname']
+        id = prsn['TelegramChatId']
+        bl = prsn['Balance']
+        st = prsn['Group']
 
-    message = ['Имя: ', fn, ' ', sn, '\n',
-               'Id: ', id, '\n',
-               'Баланс: ', bl, '\n',
-               'Статус: ', st]
-    print(''.join(message))
-    return ''.join(message)
+        message = ['Имя: ', fn, ' ', sn, '\n',
+                   'Id: ', id, '\n',
+                   'Баланс: ', bl, '\n',
+                   'Статус: ', st]
+        print(''.join(message))
+        return ''.join(message)
+    else:
+        print('no such user in database')
