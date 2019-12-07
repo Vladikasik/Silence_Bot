@@ -79,7 +79,7 @@ def main():
 
         mes_massiv = mes.text.split(' ')
 
-        intt = '0123456789'
+        intt = '-0123456789'
         correct = False
 
         if len(mes_massiv) == 2:
