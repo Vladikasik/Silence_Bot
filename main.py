@@ -91,12 +91,9 @@ def main():
                 else:
                     correct = False
                     break
-        sum_masiv = 0
         if correct:
             print('Sum transfer is good')
 
-            for i in mes_massiv[1]:
-                sum_masiv += int(i)
 
 
         if correct:
