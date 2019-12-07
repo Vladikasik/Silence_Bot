@@ -33,3 +33,4 @@ def inf(prsn):
         return ''.join(message)
     else:
         print('no such user in database')
+        return 'no such user in database'
