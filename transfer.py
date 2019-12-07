@@ -46,6 +46,7 @@ class tr:
 		f.close()
 
 	def is_available(self):
+		print(int(self.transfer_sum) <= self.balance_1,self.available_to_trans_1)
 		if int(self.transfer_sum) <= self.balance_1 and self.available_to_trans_1:
 			self.available_to_trans = True
 		else:
