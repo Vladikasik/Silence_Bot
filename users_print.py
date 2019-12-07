@@ -7,6 +7,8 @@ def main():
     for i in data:
         for j in i:
             strr+=str(j)
+            strr+=' : '
+            strr+=str(i[j])
             strr+='\n'
         strr+='###'
         strr+='\n'
