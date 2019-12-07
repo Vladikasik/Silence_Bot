@@ -21,7 +21,7 @@ def inf(prsn):
     fn = prsn['Name']
     sn = prsn['Surname']
     id = prsn['TelegramChatId']
-    bl = prsn['Balance']
+    bl = str(prsn['Balance'])
     st = prsn['Group']
 
     message = ['Имя: ', fn, ' ', sn, '\n',
