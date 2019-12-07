@@ -10,7 +10,7 @@ def main():
             strr+=' : '
             strr+=str(i[j])
             strr+='\n'
-        strr+='###'
+        strr+='###\n   \n###'
         strr+='\n'
 
 
