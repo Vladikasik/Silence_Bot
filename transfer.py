@@ -48,7 +48,8 @@ class tr:
 	def is_available(self):
 		if int(self.transfer_sum) <= self.balance_1 and self.available_to_trans_1:
 			self.available_to_trans = True
-
+		else:
+			self.available_to_trans = False
 
 		return self.available_to_trans
 
