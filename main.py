@@ -57,7 +57,7 @@ def main():
 
         def trans_main(mes):
             per = prsn_inf.info(mes.chat.id)
-            a = transfer.tr(mes.chat.id)
+            a = transfer.tr(mes.chat.id, mes.text)
             a.start()
             a.printt()
 
