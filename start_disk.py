@@ -19,7 +19,7 @@ def main(Id, message):
     # print(person_dict)
     # print('###')
     us = []
-
+    done =False
     with open('/home/project/database/users.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
@@ -28,12 +28,13 @@ def main(Id, message):
                     indexx = data.index(i)
                     data[indexx]['TelegramChatId'] = str(Id)
                     mess = 'done'
+                    done = True
                 else:
                     mess = 'had'
-            else:
-                mess = 'wrong invite code'
+
     f.close()
-    print(mess)
+    if done:
+        print(mess)
 
     with open('/home/project/database/users.json', 'w') as file:
         json.dump(data, file, indent=2, ensure_ascii=False)
