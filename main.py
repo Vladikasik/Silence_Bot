@@ -117,4 +117,5 @@ if __name__ == '__main__':
     try:
         main()
     except BaseException:
+        print('Error')
         main()
