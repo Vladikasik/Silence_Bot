@@ -22,11 +22,11 @@ def main():
     def st_ds(message):
         start_disk.main(message.chat.id,message.text)
 
-    @bot.message_handler(commands=['users'])
+    @bot.message_handler(commands=['help'])
     def help_message(message):
         bot.send_message(message.chat.id, messages.dk)
 
-    @bot.message_handler(commands=['start'])
+    @bot.message_handler(commands=['users'])
     def users_printin(message):
         bot.send_message(message.chat.id,users_print.main())
     # Функция которая реагирует на текст из кнопок
