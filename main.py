@@ -67,10 +67,11 @@ def main():
                 # if a.is_available():
                 #     a.main()
                 #     a.printt()
-                if a.is_available():
+                if a.is_available() :
                     if per['Group'] == 'Student':
-                        a.main()
-                        bot.send_message(mes.chat.id, messages.dn)
+                        if a.available_to_trans_1:
+                            a.main()
+                            bot.send_message(mes.chat.id, messages.dn)
                     elif per['Group'] == 'Teacher':
                         a.main_teacher()
                         bot.send_message(mes.chat.id, messages.dn)
