@@ -21,12 +21,13 @@ def inf(prsn):
     fn = prsn['Name']
     sn = prsn['Surname']
     id = prsn['TelegramChatId']
-    bl = str(prsn['Balance'])
+    bl = prsn['Balance']
     st = prsn['Group']
 
     message = ['Имя: ', fn, ' ', sn, '\n',
                'Id: ', id, '\n',
                'Баланс: ', bl, '\n',
                'Статус: ', st]
-    print(''.join(message))
-    return ''.join(message)
+
+    message = str(message)
+    return message
