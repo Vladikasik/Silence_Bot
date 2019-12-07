@@ -71,7 +71,7 @@ def main():
                 a.main_teacher()
                 bot.send_message(mes.chat.id, messages.dn)
             else:
-                bot.send_message(mes.chat.id,mes_wrong(mes))
+                bot.send_message(mes.chat.id,mes_wrong)
 
 
         def mes_wrong(mes):
