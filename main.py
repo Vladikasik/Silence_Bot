@@ -109,12 +109,11 @@ def main():
 
         else:
             mes_wrong(mes)
-
-    bot.polling()
+    try:
+        bot.polling(none_stop=True)
+    except:
+        pass
 
 
 if __name__ == '__main__':
-    try:
-        main()
-    except:
-        main()
+    main()
