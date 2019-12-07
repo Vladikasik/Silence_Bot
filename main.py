@@ -64,14 +64,15 @@ def main():
             # if a.is_available():
             #     a.main()
             #     a.printt()
-            if per['Group'] == 'Student':
-                a.main()
-                bot.send_message(mes.chat.id, messages.dn)
-            elif per['Group'] == 'Teacher':
-                a.main_teacher()
-                bot.send_message(mes.chat.id, messages.dn)
-            else:
-                mes_wrong(mes)
+            if a.is_available():
+                if per['Group'] == 'Student':
+                    a.main()
+                    bot.send_message(mes.chat.id, messages.dn)
+                elif per['Group'] == 'Teacher':
+                    a.main_teacher()
+                    bot.send_message(mes.chat.id, messages.dn)
+                else:
+                    mes_wrong(mes)
 
 
         def mes_wrong(mes):
