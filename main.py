@@ -72,7 +72,7 @@ def main():
                     a.main_teacher()
                     bot.send_message(mes.chat.id, messages.dn)
                 else:
-                    mes_wrong_gr(mes)
+                    mes_wrong_group(mes)
             else:
                 mes_wrong(mes)
 
