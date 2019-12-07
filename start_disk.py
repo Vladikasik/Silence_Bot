@@ -30,6 +30,8 @@ def main(Id, message):
                     mess = 'done'
                 else:
                     mess = 'had'
+            else:
+                print('wrong invite code')
     f.close()
     print(mess)
 
