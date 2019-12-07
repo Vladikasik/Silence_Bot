@@ -44,10 +44,6 @@ class tr:
 					self.indexes[1] = sch
 		f.close()
 
-
-
-
-
 	def is_available(self):
 		if int(self.transfer_sum) <= self.balance_1 and self.available_to_trans_1:
 			self.available_to_trans = True
@@ -64,11 +60,50 @@ class tr:
 		print('###')
 
 	def main(self):
+
+		if self.transfer_sum > 0:
+			print(self.indexes)
+			if self.is_available():
+				self.data[self.indexes[0] - 1]['Balance'] = str(
+					int(self.data[self.indexes[0] - 1]['Balance']) - int(self.transfer_sum))
+				print('Balance 1 was changed')
+
+				self.data[self.indexes[1] - 1]['Balance'] = str(
+					int(self.data[self.indexes[1] - 1]['Balance']) + int(self.transfer_sum))
+				print('Balance 2 was changed')
+
+				with open('/home/project/database/users.json', 'w') as file:
+					json.dump(self.data, file, indent=2, ensure_ascii=False)
+				file.close()
+
+			# не трогайте пж
+			with open(r'../database/operations.json', 'r') as f:
+				data = json.loads(f.read())
+			f.close()
+
+			time1 = time.strftime('%H %M %S %d %m').split()
+			time2 = ''
+			time3 = [':', ':', '_', '', '']
+			for i in range(0, len(time1)):
+				time2 += time1[i]
+				time2 += time3[i]
+
+			trans_inf = {
+				'From: ': self.User_1_id,
+				'To: ': self.Username_2,
+				'Value: ': self.transfer_sum,
+				'Time: ': time2
+			}
+			data.append(trans_inf)
+
+			with open(r'../database/operations.json', 'w') as file:
+				json.dump(data, file, indent=2, ensure_ascii=False)
+			file.close()
+
+	def main_teacher(self):
+
 		print(self.indexes)
 		if self.is_available():
-			self.data[self.indexes[0]-1]['Balance'] = str(
-				int(self.data[self.indexes[0]-1]['Balance']) -int(self.transfer_sum))
-			print('Balance 1 was changed')
 
 			self.data[self.indexes[1] - 1]['Balance'] = str(
 				int(self.data[self.indexes[1] - 1]['Balance']) + int(self.transfer_sum))
@@ -78,29 +113,31 @@ class tr:
 				json.dump(self.data, file, indent=2, ensure_ascii=False)
 			file.close()
 
-		#не трогайте пж
+
+		# не трогайте пж
 		with open(r'../database/operations.json', 'r') as f:
 			data = json.loads(f.read())
 		f.close()
 
 		time1 = time.strftime('%H %M %S %d %m').split()
 		time2 = ''
-		time3 = [':',':','_','','']
-		for i in range(0,len(time1)):
-			time2+=time1[i]
+		time3 = [':', ':', '_', '', '']
+		for i in range(0, len(time1)):
+			time2 += time1[i]
 			time2 += time3[i]
 
 		trans_inf = {
-					'From: ': self.User_1_id,
-					'To: ': self.Username_2,
-					'Value: ': self.transfer_sum,
-					'Time: ': time2
-					}
+			'From: ': self.User_1_id,
+			'To: ': self.Username_2,
+			'Value: ': self.transfer_sum,
+			'Time: ': time2
+		}
 		data.append(trans_inf)
 
 		with open(r'../database/operations.json', 'w') as file:
 			json.dump(data, file, indent=2, ensure_ascii=False)
 		file.close()
+
 
 
 

@@ -41,6 +41,7 @@ def main():
         elif message.text == keyboard.bttn_send:
             # elif message.text == keyboard.bttn_info:
             # mes = bot.send_message(message.chat.id, messages.tr)
+
             # mes()
             bot.register_next_step_handler(
                     bot.send_message(message.chat.id, messages.tr),
@@ -55,16 +56,23 @@ def main():
     def trans(mes):
 
         def trans_main(mes):
-            a = transfer.tr(mes.chat.id, mes.text)
+            per = prsn_inf.info(mes.chat.id)
+            a = transfer.tr(mes.chat.id)
             a.start()
             a.printt()
 
-            if a.is_available():
+            # if a.is_available():
+            #     a.main()
+            #     a.printt()
+            if per['Group'] == 'Student':
                 a.main()
-                a.printt()
+                bot.send_message(mes.chat.id, messages.dn)
+            elif per['Group'] == 'Teacher':
+                a.main_teacher()
                 bot.send_message(mes.chat.id, messages.dn)
             else:
-                mes_wrong(mes)
+                bot.send_message(mes.chat.id,mes_wrong(mes))
+
 
         def mes_wrong(mes):
             bot.send_message(mes.chat.id, messages.wr)
@@ -90,11 +98,6 @@ def main():
             for i in mes_massiv[1]:
                 sum_masiv += int(i)
 
-        if correct:
-            if sum_masiv > 0:
-                correct = True
-            else:
-                correct = False
 
         if correct:
             print('correct 2')
