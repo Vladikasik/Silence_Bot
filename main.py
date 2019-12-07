@@ -114,8 +114,5 @@ def main():
 
 
 if __name__ == '__main__':
-    try:
-        main()
-    except BaseException:
-        print('Error')
+    while 1 == 1:
         main()
