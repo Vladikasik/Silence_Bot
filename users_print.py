@@ -5,6 +5,6 @@ def main():
     f.close()
     strr = ''
     for i in data:
-        strr+=i,' ',data[i],'\n'
+        strr+=i,' ','\n'
 
     return strr
