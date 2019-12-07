@@ -31,7 +31,7 @@ def main(Id, message):
                 else:
                     mess = 'had'
             else:
-                print('wrong invite code')
+                mess = 'wrong invite code'
     f.close()
     print(mess)
 
