@@ -36,9 +36,9 @@ def main():
         print('msg:',message.text,'id:',message.chat.id)
         if message.text == keyboard.bttn_info:
             per = prsn_inf.info(message.chat.id)
-            print(per)
             mes = messages.inf(per)
             bot.send_message(message.chat.id, mes)
+
         elif message.text == keyboard.bttn_send:
             # elif message.text == keyboard.bttn_info:
             # mes = bot.send_message(message.chat.id, messages.tr)
@@ -55,7 +55,8 @@ def main():
             bot.send_message(message.chat.id, messages.dk)
 
     def trans(mes):
-
+        print('after trans')
+        print('msg:', mes.text, 'id:', mes.chat.id)
         def trans_main(mes):
             per = prsn_inf.info(mes.chat.id)
             a = transfer.tr(mes.chat.id, mes.text)

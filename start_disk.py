@@ -20,7 +20,7 @@ def main(Id, message):
     # print('###')
     us = []
     done =False
-    print('##')
+    print('after start')
     print('msg:', message, 'id:', Id)
     with open('/home/project/database/users.json', 'r') as f:
         data = json.loads(f.read())
