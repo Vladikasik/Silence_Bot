@@ -17,22 +17,3 @@ msg_wrong_tr = 'Данные перевода указаны неверно. \n'
 msg_wrong_st = 'У вас неправильный статус, обратитесь за помошью.'
 
 msg_done_tr = 'Перевод успешно осуществлен.'
-
-
-def inf(prsn):
-    if type(prsn) == dict:
-        fn = prsn['Name']
-        sn = prsn['Surname']
-        id = prsn['TelegramChatId']
-        bl = prsn['Balance']
-        st = prsn['Group']
-
-        message = ['Имя: ', fn, ' ', sn, '\n',
-                   'Id: ', id, '\n',
-                   'Баланс: ', bl, '\n',
-                   'Статус: ', st]
-        print(''.join(message))
-        return ''.join(message)
-    else:
-        print('No such user in database')
-        return 'No such user in database'
