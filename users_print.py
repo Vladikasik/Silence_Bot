@@ -1,8 +1,10 @@
 import json
+
 def main():
-    with open('/home/project/database/users.json', 'r') as f:
-        data = json.loads(f.read())
-    f.close()
+    with open('/home/project/database/users.json', 'r') as file:
+        data = json.loads(file.read())
+        file.close()
+
     strr = ''
     for i in data:
         for j in i:
@@ -12,6 +14,5 @@ def main():
             strr+='\n'
         strr+='###\n   \n###'
         strr+='\n'
-
-
+        
     return strr
