@@ -20,19 +20,19 @@ def main():
 
     # После команды /start
     def add_userId(msg):
-    	print('after /start')
-    	print('msg:', msg, 'id:', msg.chat.id)
+        print('after /start')
+        print('msg:', msg, 'id:', msg.chat.id)
     
-    	data = load_users() 
-		# добавление ChatId нового пользователя по пригласительному коду
-		for user in data:
-			if user['InviteCode'] == message:
-				if user['TelegramChatId'] == '':
-					indexx = data.index(user)
-					data[indexx]['TelegramChatId'] = str(Id)
-					print('The new ChatId has been set done.')
-				break
-		save_users(data)
+        data = load_users()
+
+        for user in data:# добавление ChatId нового пользователя по пригласительному коду
+            if user['InviteCode'] == msg.text:
+                if user['TelegramChatId'] == '':
+                    indexx = data.index(user)
+                    data[indexx]['TelegramChatId'] = str(Id)
+                    print('The new ChatId has been set done.')
+                break
+        save_users(data)
 
     # Обработка команды /help
     @bot.message_handler(commands=['help'])
@@ -53,21 +53,21 @@ def main():
     def main_func(msg):
         print('button')
         print('msg:',msg.text,'id:',msg.chat.id)
-		
+
         # Обработка нажатия кнопки "Баланс"
         if msg.text == keyboard.bttn_info:
             bot.send_message(msg.chat.id, str_user(msg.chat.id))
-	
+
         # Обработка нажатия кнопки "Перевод"
         elif msg.text == keyboard.bttn_send:
             bot.register_next_step_handler(
                 bot.send_message(msg.chat.id, msg_trans),
                 trans)
-			
-        elif message.text == 'KillTheBotRightNow':
+
+        elif msg.text == 'KillTheBotRightNow':
             a = 1 / 0
             print(a)
-			
+
         else:
             bot.send_message(msg.chat.id, msg_help)
 
@@ -80,7 +80,7 @@ def main():
         if type(user) == dict:
             a = transfer.tr(msg.chat.id, msg.text)   #в конструкторе транзакции происходит проверка
             a.printt()
-				
+
             if a.available_to_trans :
                 if user['Group'] == 'Student':
                     if a.available_to_trans_1:

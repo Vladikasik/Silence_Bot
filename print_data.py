@@ -9,9 +9,9 @@ def load_users():
     
 # сохранение базы пользователей в файл
 def save_users(data):
-	with open(r'../database/users.json', 'w') as file:
-	json.dump(data, file, indent=2, ensure_ascii=False)
-        file.close()
+    with open(r'../database/users.json', 'w') as file:
+        json.dump(data, file, indent=2, ensure_ascii=False)
+    file.close()
 
 # загрузка базы операций из файла
 def load_operations():
@@ -22,8 +22,8 @@ def load_operations():
     
 # сохранение базы операций в файл
 def save_operations(data):
-	with open(r'../database/operations.json', 'w') as file:
-		json.dump(data, file, indent=2, ensure_ascii=False)
+    with open(r'../database/operations.json', 'w') as file:
+        json.dump(data, file, indent=2, ensure_ascii=False)
         file.close()
         
 #######
@@ -43,8 +43,8 @@ def print_operations():
 #######
 
 def get_user(id):
-	data = load_users()
-	
+    data = load_users()
+
     user = ''
     for u in data:
         if u['TelegramChatId'] == str(id):
@@ -54,12 +54,13 @@ def get_user(id):
     return user
 
 def str_user(id):
+
     if type(user) == dict:
         info = ['Имя: ', user['Name'], ' ', user['Surname'], '\n',
                 'Id: ', user['TelegramChatId'], '\n',
                 'Баланс: ', user['Balance'], '\n',
                 'Статус: ', user['Group']]
-		
+
         print(''.join(info))
         return ''.join(info)
     else:
@@ -68,7 +69,7 @@ def str_user(id):
 
 def str_users():
     data = load_users()
-	
+
     strr = ''
     for user in data:
         for info in user:
