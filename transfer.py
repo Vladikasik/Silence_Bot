@@ -1,11 +1,9 @@
-
 import var
 import json
 import os
 import time
 
 class tr:
-
 
 	def __init__(self,Username_1,message):
 
@@ -22,8 +20,11 @@ class tr:
 
 	def start(self):
 		sch = 0
+		# self.data = load_users()
 		with open(r'/home/project/database/users.json', 'r') as f:
 			self.data = json.loads(f.read())
+			f.close()
+			
 			for i in self.data:
 				sch+=1
 
@@ -31,10 +32,13 @@ class tr:
 					self.balance_1 = int(i['Balance'])
 					self.indexes[0] = sch
 
-		f.close()
+		
 		sch = 0
+		# data = load_users()
 		with open(r'/home/project/database/users.json', 'r') as f:
 			data = json.loads(f.read())
+			f.close()
+			
 			for i in data:
 				sch+=1
 
@@ -43,7 +47,7 @@ class tr:
 					print('2nd user',self.available_to_trans_1)
 					self.balance_2 = int(i['Balance'])
 					self.indexes[1] = sch
-		f.close()
+		
 
 	def is_available(self):
 
@@ -75,9 +79,10 @@ class tr:
 					int(self.data[self.indexes[1] - 1]['Balance']) + int(self.transfer_sum))
 				print('Balance 2 was changed')
 
+				# save_users(self.data)
 				with open('/home/project/database/users.json', 'w') as file:
 					json.dump(self.data, file, indent=2, ensure_ascii=False)
-				file.close()
+					file.close()
 
 			# не трогайте пж
 			with open(r'../database/operations.json', 'r') as f:
