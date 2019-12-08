@@ -1,12 +1,12 @@
+import telebot
+import var
+from messages import *
+from print_data import *
+import keyboard
+import start_disk
+import transfer
 def main():
-    import telebot
-    import var
-    from messages import *
-    from print_data import *
-    import keyboard
-    import start_disk
-    import transfer
-
+    #тут нельзя было импортировать так *
     bot = telebot.TeleBot(var.token_of_bot)
 
     # Обработка команды /start
