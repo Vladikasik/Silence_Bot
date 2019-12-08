@@ -1,43 +1,26 @@
 def main(Id, message):
     import json
-
     import var
     import os
 
-    # person_dict = {"Id": str(id),
-    #                "WebsiteUsername": "",
-    #                "WebsitePassword": "",
-    #                "WebsiteSsid": "",
-    #                "TelegramSurname": str(SecondName),
-    #                "TelegramName": str(FirstName),
-    #                "InviteCode": "",
-    #                "Surname": "",
-    #                "Name": "",
-    #                "Balance": "0",
-    #                "Group": "Student"}
-
-    # print(person_dict)
-    # print('###')
-    us = []
-    done =False
-    print('after start')
+    print('after /start')
     print('msg:', message, 'id:', Id)
-    with open('/home/project/database/users.json', 'r') as f:
-        data = json.loads(f.read())
-        for i in data:
-            if i['InviteCode'] == message:
-                if i['TelegramChatId'] == '':
-                    indexx = data.index(i)
+    
+    # data = load_users()
+    with open('/home/project/database/users.json', 'r') as file:
+        data = json.loads(file.read())
+        file.close()
+        
+    # добавление ChatId нового пользователя по пригласительному коду
+    	for user in data:
+            if user['InviteCode'] == message:
+                if user['TelegramChatId'] == '':
+                    indexx = data.index(user)
                     data[indexx]['TelegramChatId'] = str(Id)
-                    mess = 'done'
-                    done = True
-                else:
-                    mess = 'had'
+                    print('The new ChatId has been set done.')
+                break
 
-    f.close()
-    if done:
-        print(mess)
-
+    # save_users(data)
     with open('/home/project/database/users.json', 'w') as file:
         json.dump(data, file, indent=2, ensure_ascii=False)
-    file.close()
+        file.close()
