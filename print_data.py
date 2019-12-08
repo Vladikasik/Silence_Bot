@@ -5,25 +5,25 @@ def load_users():
     with open('/home/project/database/users.json', 'r') as file:
         data = json.loads(file.read())
         file.close()
-        return data
+    return data
     
 # сохранение базы пользователей в файл
 def save_users(data):
-    with open('/home/project/database/users.json', 'r') as file:
-        data = json.loads(file.read())
+	with open(r'../database/users.json', 'w') as file:
+	json.dump(data, file, indent=2, ensure_ascii=False)
         file.close()
 
 # загрузка базы операций из файла
-def load_operations):
+def load_operations():
     with open('/home/project/database/users.json', 'r') as file:
         data = json.loads(file.read())
         file.close()
-        return data
+    return data
     
 # сохранение базы операций в файл
 def save_operations(data):
-    with open('/home/project/database/users.json', 'r') as file:
-        data = json.loads(file.read())
+	with open(r'../database/operations.json', 'w') as file:
+		json.dump(data, file, indent=2, ensure_ascii=False)
         file.close()
         
 #######
@@ -57,7 +57,7 @@ def str_users():
         
     return strr
 
-def user(id):
+def get_user(id):
 	data = load_users()
 	
     user = ''
