@@ -35,10 +35,18 @@ class tr:
 		if int(self.transfer_sum) <= self.balance_1:
 			self.available_to_trans = True
 
-	def printt(self):
+	def printt_before(self):
 		print('###')
 		print('Transf_sum',self.transfer_sum)
 		print('Users with their balances before transfer')
+		print(self.Username_1, self.Username_2)
+		print(self.balance_1,self.balance_2)
+		print('###')
+
+	def printt_after(self):
+		print('###')
+		print('Transf_sum',self.transfer_sum)
+		print('Users with their balances after transfer')
 		print(self.Username_1, self.Username_2)
 		print(self.balance_1,self.balance_2)
 		print('###')

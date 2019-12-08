@@ -31,6 +31,7 @@ def main():
                     indexx = data.index(user)
                     data[indexx]['TelegramChatId'] = str(Id)
                     print('The new ChatId has been set done.')
+                    bot.send_message(msg.chat.id,msg_done_id)
                 break
         save_users(data)
 
@@ -79,7 +80,7 @@ def main():
         user = get_user(msg.chat.id)
         if type(user) == dict:
             a = transfer.tr(msg.chat.id, msg.text)   #в конструкторе транзакции происходит проверка
-            a.printt()
+            a.printt_before()
 
             if a.available_to_trans :
                 if user['Group'] == 'Student':
@@ -93,6 +94,8 @@ def main():
                     bot.send_message(msg.chat.id, msg_wrong_st)
             else:
                 bot.send_message(msg.chat.id, msg_wrong_tr)
+
+            a.printt_after()
 
     try:
         bot.polling(none_stop=True)
