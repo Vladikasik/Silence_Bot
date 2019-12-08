@@ -36,15 +36,16 @@ class tr:
 			self.available_to_trans = True
 
 	def printt(self):
-		print(self.transfer_sum,self.data[self.indexes[0]-1]['Balance'])
-		print(self.id, self.Username_2)
+		print('###')
+		print('Transf_sum',self.transfer_sum)
+		print('Users with their balances before transfer')
+		print(self.Username_1, self.Username_2)
 		print(self.balance_1,self.balance_2)
 		print('###')
 
 	def main(self):
 
 		if self.transfer_sum > 0:
-			print(self.indexes)
 			if self.available_to_trans:
 				self.data[self.indexes[0] - 1]['Balance'] = str(
 					int(self.data[self.indexes[0] - 1]['Balance']) - int(self.transfer_sum))
@@ -82,9 +83,8 @@ class tr:
 
 	def main_teacher(self):
 
-		print(self.indexes)
-		if self.available_to_trans_1:
 
+		if self.available_to_trans_1:
 			self.data[self.indexes[1] - 1]['Balance'] = str(
 				int(self.data[self.indexes[1] - 1]['Balance']) + int(self.transfer_sum))
 			print('Balance 2 was changed')
