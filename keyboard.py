@@ -1,7 +1,8 @@
 from telebot import types
 
-markup = types.ReplyKeyboardMarkup()
-markup.row('⬆️Перевод')
-markup.row('🥭Баланс')
 bttn_send = '⬆️Перевод'
 bttn_info = '🥭Баланс'
+
+markup = types.ReplyKeyboardMarkup()
+markup.row(bttn_send)
+markup.row(bttn_info)
