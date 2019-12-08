@@ -1,23 +1,23 @@
 def main():
-	import telebot
-	import var
-	from messages import *
-	from print_data import *
-	import keyboard
-	import start_disk
-	import transfer
+    import telebot
+    import var
+    from messages import *
+    from print_data import *
+    import keyboard
+    import start_disk
+    import transfer
 
 
     bot = telebot.TeleBot(var.token_of_bot)
 
-	# Обработка команды /start
+    # Обработка команды /start
     @bot.message_handler(commands=['start'])
     def start_message(msg):
         bot.register_next_step_handler(
             bot.send_message(msg.chat.id, msg_start, reply_markup=keyboard.markup),
             add_userId)
 
-	# После команды /start
+    # После команды /start
     def add_userId(msg):
     	print('after /start')
     	print('msg:', msg, 'id:', msg.chat.id)
@@ -33,12 +33,12 @@ def main():
 				break
 		save_users(data)
 
-	# Обработка команды /help
+    # Обработка команды /help
     @bot.message_handler(commands=['help'])
     def help_message(msg):
         bot.send_message(msg.chat.id, msg_help)
 
-	# Обработка команды /users
+    # Обработка команды /users
     @bot.message_handler(commands=['users'])
     def users_message(msg):
         bot.send_message(msg.chat.id,str_users())
@@ -49,11 +49,11 @@ def main():
         print('button')
         print('msg:',msg.text,'id:',msg.chat.id)
 		
-		# Обработка нажатия кнопки "Баланс"
+        # Обработка нажатия кнопки "Баланс"
         if msg.text == keyboard.bttn_info:
             bot.send_message(msg.chat.id, str_user(msg.chat.id))
 	
-		# Обработка нажатия кнопки "Перевод"
+        # Обработка нажатия кнопки "Перевод"
         elif msg.text == keyboard.bttn_send:
             bot.register_next_step_handler(
                 bot.send_message(msg.chat.id, msg_trans),
@@ -66,7 +66,7 @@ def main():
         else:
             bot.send_message(msg.chat.id, msg_help)
 
-	# После команды "Перевод"
+    # После команды "Перевод"
     def trans(msg):
         print('after trans')
         print('msg:', msg.text, 'id:', msg.chat.id)
