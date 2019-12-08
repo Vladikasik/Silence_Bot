@@ -1,16 +1,1 @@
-[
-  {
-    "Id": "489989504",
-    "FirstName": "Vlad",
-    "SecondName": "Ainshtein",
-    "Balance": "0",
-    "Status": "Student"
-  },
-  {
-    "Id": "777109014",
-    "FirstName": "Семён",
-    "SecondName": "Дроздов",
-    "Balance": "0",
-    "Status": "Student"
-  }
-]
+null
