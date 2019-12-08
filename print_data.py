@@ -54,7 +54,7 @@ def get_user(id):
     return user
 
 def str_user(id):
-
+    user = get_user(id)
     if type(user) == dict:
         info = ['Имя: ', user['Name'], ' ', user['Surname'], '\n',
                 'Id: ', user['TelegramChatId'], '\n',
