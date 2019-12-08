@@ -1,114 +1,87 @@
 def main():
     import telebot
     import var
-    import messages
+	from messages import *
+	from print_data import *
     import keyboard
     import start_disk
-    import prsn_inf
     import transfer
-    import users_print
+
 
     bot = telebot.TeleBot(var.token_of_bot)
 
-
-    # Функйия которая реагирует на команды
+    # Обработка команды /start
     @bot.message_handler(commands=['start'])
-    def start_message(message):
-
+    def start_message(msg):
         bot.register_next_step_handler(
-            bot.send_message(message.chat.id, messages.start_command, reply_markup=keyboard.markup),
-            st_ds)
+            bot.send_message(msg.chat.id, msg_start, reply_markup=keyboard.markup),
+            after_start)
 
-    def st_ds(message):
-        start_disk.main(message.chat.id,message.text)
+	# Обработка сообщения после /start
+    def after_start(msg):
+        start_disk.main(msg.chat.id,msg.text)
 
+    # Обработка команды /help
     @bot.message_handler(commands=['help'])
-    def help_message(message):
-        bot.send_message(message.chat.id, messages.dk)
+    def help_message(msg):
+        bot.send_message(msg.chat.id, msg_help)
 
+	# Обработка команды /users
     @bot.message_handler(commands=['users'])
-    def users_printin(message):
-        bot.send_message(message.chat.id,users_print.main())
-    # Функция которая реагирует на текст из кнопок
-    @bot.message_handler(func=lambda message: True)
-    def main_func(message):
-        print('##')
-        print('msg:',message.text,'id:',message.chat.id)
-        if message.text == keyboard.bttn_info:
-            per = prsn_inf.info(message.chat.id)
-            mes = messages.inf(per)
-            bot.send_message(message.chat.id, mes)
-
-        elif message.text == keyboard.bttn_send:
-            # elif message.text == keyboard.bttn_info:
-            # mes = bot.send_message(message.chat.id, messages.tr)
-
-            # mes()
+    def users_printin(msg):
+        bot.send_message(msg.chat.id,str_users())
+        
+    # Обработка нажатия кнопок
+    @bot.message_handler(func=lambda msg: True)
+    def main_func(msg):
+        print('button')
+        print('msg:',msg.text,'id:',msg.chat.id)
+		
+		# Обработка нажатия кнопки "Баланс"
+        if msg.text == keyboard.bttn_info:
+            bot.send_message(msg.chat.id, str_user(msg.chat.id))
+	
+		# Обработка нажатия кнопки "Перевод"
+        elif msg.text == keyboard.bttn_send:
             bot.register_next_step_handler(
-                    bot.send_message(message.chat.id, messages.tr),
-                    trans
-                                            )
+                bot.send_message(msg.chat.id, msg_trans),
+				trans)
+			
         elif message.text == 'KillTheBotRightNow':
             a = 1 / 0
             print(a)
+			
         else:
-            bot.send_message(message.chat.id, messages.dk)
+            bot.send_message(msg.chat.id, msg_help)
 
-    def trans(mes):
+	# Транзакция
+    def trans(msg):
         print('after trans')
-        print('msg:', mes.text, 'id:', mes.chat.id)
-        def trans_main(mes):
-            per = prsn_inf.info(mes.chat.id)
-            if type(per) == dict:
-                a = transfer.tr(mes.chat.id, mes.text)
-                a.start()
+        print('msg:', msg.text, 'id:', msg.chat.id)
+        
+        def trans_main(msg):
+            user = get_user(msg.chat.id)
+            if type(user) == dict:
+                a = transfer.tr(msg.chat.id, msg.text)   #в конструкторе транзакции происходит проверка
                 a.printt()
-
-                # if a.is_available():
-                #     a.main()
-                #     a.printt()
-                if a.is_available() :
-                    if per['Group'] == 'Student':
+				
+                if a.available_to_trans :
+                    if user['Group'] == 'Student':
                         if a.available_to_trans_1:
                             a.main()
-                            bot.send_message(mes.chat.id, messages.dn)
-                    elif per['Group'] == 'Teacher':
+                            bot.send_message(msg.chat.id, msg_good_tr)
+                    elif user['Group'] == 'Teacher':
                         a.main_teacher()
-                        bot.send_message(mes.chat.id, messages.dn)
+                        bot.send_message(msg.chat.id, msg_good_tr)
                     else:
-                        mes_wrong_group(mes)
+                        bot.send_message(msg.chat.id, msg_wrong_st)
                 else:
-                    mes_wrong(mes)
+                    bot.send_message(msg.chat.id, msg_wrong_tr)
 
-        def mes_wrong_group(mes):
-            bot.send_message(mes.chat.id, messages.wr_gr)
-
-        def mes_wrong(mes):
-            bot.send_message(mes.chat.id, messages.wr)
-
-        mes_massiv = mes.text.split(' ')
-
-        intt = '-0123456789'
-        correct = False
-
-        if len(mes_massiv) == 2:
-            mes_massiv[1] = list(mes_massiv[1])
-            for i in mes_massiv[1]:
-                if i in intt:
-                    correct = True
-                else:
-                    correct = False
-                    break
-        if correct:
-            print('Sum transfer is good')
-
-        else:
-            mes_wrong(mes)
     try:
         bot.polling(none_stop=True)
     except:
         pass
-
 
 if __name__ == '__main__':
     main()
