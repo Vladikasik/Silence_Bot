@@ -1,21 +1,24 @@
 import json
-def people():
+
+def print_users():
     with open('people.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
             for j in i:
                 print(i[j])
-def operations():
+                
+def print_operations():
     with open(r'../DataBase/operations.json', 'r') as f:
         data = json.loads(f.read())
         for i in data:
             for j in i:
                 print(i[j])
-a = input()
+                
+choice = input()
 
-if a == '1':
-    people()
-elif a == '2':
-    operations()
+if choice == '1':
+    print_users()
+elif choice == '2':
+    print_operations()
 else:
-    print('Идика нахуй')
+    print('Некорректный запрос для вывода информации: ', choice)
