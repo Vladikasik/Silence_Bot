@@ -1,37 +1,49 @@
 def main():
-    import telebot
-    import var
+	import telebot
+	import var
 	from messages import *
 	from print_data import *
-    import keyboard
-    import start_disk
-    import transfer
+	import keyboard
+	import start_disk
+	import transfer
 
 
     bot = telebot.TeleBot(var.token_of_bot)
 
-    # Обработка команды /start
+	# Обработка команды /start
     @bot.message_handler(commands=['start'])
     def start_message(msg):
         bot.register_next_step_handler(
             bot.send_message(msg.chat.id, msg_start, reply_markup=keyboard.markup),
-            after_start)
+            add_userId)
 
-	# Обработка сообщения после /start
-    def after_start(msg):
-        start_disk.main(msg.chat.id,msg.text)
+	# После команды /start
+    def add_userId(msg):
+    	print('after /start')
+    	print('msg:', msg, 'id:', msg.chat.id)
+    
+    	data = load_users() 
+		# добавление ChatId нового пользователя по пригласительному коду
+		for user in data:
+			if user['InviteCode'] == message:
+				if user['TelegramChatId'] == '':
+					indexx = data.index(user)
+					data[indexx]['TelegramChatId'] = str(Id)
+					print('The new ChatId has been set done.')
+				break
+		save_users(data)
 
-    # Обработка команды /help
+	# Обработка команды /help
     @bot.message_handler(commands=['help'])
     def help_message(msg):
         bot.send_message(msg.chat.id, msg_help)
 
 	# Обработка команды /users
     @bot.message_handler(commands=['users'])
-    def users_printin(msg):
+    def users_message(msg):
         bot.send_message(msg.chat.id,str_users())
-        
-    # Обработка нажатия кнопок
+    
+	# Обработка нажатия кнопок
     @bot.message_handler(func=lambda msg: True)
     def main_func(msg):
         print('button')
@@ -54,7 +66,7 @@ def main():
         else:
             bot.send_message(msg.chat.id, msg_help)
 
-	# Транзакция
+	# После команды "Перевод"
     def trans(msg):
         print('after trans')
         print('msg:', msg.text, 'id:', msg.chat.id)
