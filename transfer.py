@@ -2,14 +2,14 @@ import var
 import json
 import os
 import time
-from print_info import *
+from print_data import *
 
 class tr:
 	
-	def __init__(self,Username_1,msg):
+	def __init__(self,id,msg):
 
-		self.User_1_id = Username_1
-		self.Username_2,self.transfer_sum = msg.split(' ')
+		self.id = id
+		self.Username_2, self.transfer_sum = msg.split(' ')
 		self.balance_1 = 0
 		self.balance_2 = 0
 		self.available_to_trans = False
@@ -17,7 +17,6 @@ class tr:
 		self.indexes = [0,0]
 		self.available_to_trans_1 = False
 
-	def start(self):
 		sch = 0
 		self.data = load_users()
 		for user in self.data:
@@ -25,37 +24,19 @@ class tr:
 			if user['TelegramChatId'] == str(self.User_1_id):
 				self.balance_1 = int(user['Balance'])
 				self.indexes[0] = sch
-
-		sch = 0
-		data = load_users()		
-		for user in data:
-			sch+=1
+				
 			if user['Surname'] == self.Username_2:
 				self.available_to_trans_1 = True
 				print('2nd user',self.available_to_trans_1)
 				self.balance_2 = int(user['Balance'])
 				self.indexes[1] = sch
-				
-		self.available_to_trans = self.is_correct()
-		
-	def is_correct(self):
-        correct = False
-		msg_words = msg.text.split(' ')
-        intt = '-0123456789'
-        if len(msg_words) == 2:
-            msg_words[1] = list(msg_words[1]) #???
-            for i in msg_words[1]:
-                if i in intt:
-                    correct = True
-		
-		if int(self.transfer_sum) <= self.balance_1 :
-			correct = True
-			
-		return correct;
+	
+		if int(self.transfer_sum) <= self.balance_1:
+			self.available_to_trans = True
 
 	def printt(self):
 		print(self.transfer_sum,self.data[self.indexes[0]-1]['Balance'])
-		print(self.User_1_id, self.Username_2)
+		print(self.id, self.Username_2)
 		print(self.balance_1,self.balance_2)
 		print('###')
 
