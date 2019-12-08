@@ -52,6 +52,8 @@ class tr:
 		print('Transf_sum',self.transfer_sum)
 		print('Users with their balances after transfer')
 		print(self.Username_1, self.Username_2)
+		self.balance_1 = get_user_by_surname(self.Username_1)['Balance']
+		self.balance_2 = get_user_by_surname(self.Username_2)['Balance']
 		print(self.balance_1,self.balance_2)
 		print('###')
 

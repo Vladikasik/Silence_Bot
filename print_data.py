@@ -53,6 +53,17 @@ def get_user(id):
 
     return user
 
+def get_user_by_surname(surname):
+    data = load_users()
+
+    user = ''
+    for u in data:
+        if u['Surname'] == str(surname):
+            user = u
+            break
+
+    return user
+
 def str_user(id):
     user = get_user(id)
     if type(user) == dict:
