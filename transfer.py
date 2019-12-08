@@ -10,6 +10,7 @@ class tr:
 
 		self.id = id
 		self.Username_2, self.transfer_sum = msg.split(' ')
+		print(self.Username_2)
 		self.balance_1 = 0
 		self.balance_2 = 0
 		self.available_to_trans = False
@@ -27,6 +28,9 @@ class tr:
 				self.indexes[0] = sch
 				
 			if user['Surname'] == self.Username_2:
+
+				print('Username_2 was found.')
+
 				self.available_to_trans_1 = True
 				print('2nd user',self.available_to_trans_1)
 				self.balance_2 = int(user['Balance'])
