@@ -21,7 +21,7 @@ class tr:
 		self.data = load_users()
 		for user in self.data:
 			sch+=1
-			if user['TelegramChatId'] == str(self.User_1_id):
+			if user['TelegramChatId'] == str(self.id):
 				self.balance_1 = int(user['Balance'])
 				self.indexes[0] = sch
 				
