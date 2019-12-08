@@ -2,17 +2,15 @@ import var
 import json
 import os
 
-
-def info(id):
-    us = []
-    per = ""
-    with open('/home/project/database/users.json', 'r') as f:
-        data = json.loads(f.read())
-        for i in data:
-            if i["TelegramChatId"] == str(id):
-                per = i
+def get_user(id):
+    user = ""
+    
+    with open('/home/project/database/users.json', 'r') as file:
+        data = json.loads(file.read())
+        for u in data:
+            if u["TelegramChatId"] == str(id):
+                user = u
                 break
-
-
-    f.close()
-    return per
+                
+    file.close()
+    return user
