@@ -16,6 +16,7 @@ class tr:
 		self.data = None
 		self.indexes = [0,0]
 		self.available_to_trans_1 = False
+		self.Username_1 = get_user(self.id)
 
 		sch = 0
 		self.data = load_users()
@@ -68,7 +69,7 @@ class tr:
 				time2 += time3[i]
 
 			trans_inf = {
-				'From: ': self.User_1_id,
+				'From: ': self.Username_1,
 				'To: ': self.Username_2,
 				'Value: ': self.transfer_sum,
 				'Time: ': time2
@@ -103,7 +104,7 @@ class tr:
 			time2 += time3[i]
 
 		trans_inf = {
-			'From: ': self.User_1_id,
+			'From: ': self.Username_1,
 			'To: ': self.Username_2,
 			'Value: ': self.transfer_sum,
 			'Time: ': time2
