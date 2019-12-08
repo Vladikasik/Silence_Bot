@@ -7,12 +7,13 @@ def main():
     import start_disk
     import transfer
 
-
     bot = telebot.TeleBot(var.token_of_bot)
 
     # Обработка команды /start
     @bot.message_handler(commands=['start'])
     def start_message(msg):
+        print('/start')
+        print('msg:',msg.text,'id:',msg.chat.id)
         bot.register_next_step_handler(
             bot.send_message(msg.chat.id, msg_start, reply_markup=keyboard.markup),
             add_userId)
@@ -36,14 +37,18 @@ def main():
     # Обработка команды /help
     @bot.message_handler(commands=['help'])
     def help_message(msg):
+        print('/help')
+        print('msg:',msg.text,'id:',msg.chat.id)
         bot.send_message(msg.chat.id, msg_help)
 
     # Обработка команды /users
     @bot.message_handler(commands=['users'])
     def users_message(msg):
+        print('/users')
+        print('msg:',msg.text,'id:',msg.chat.id)
         bot.send_message(msg.chat.id,str_users())
     
-	# Обработка нажатия кнопок
+    # Обработка нажатия кнопок
     @bot.message_handler(func=lambda msg: True)
     def main_func(msg):
         print('button')
@@ -57,7 +62,7 @@ def main():
         elif msg.text == keyboard.bttn_send:
             bot.register_next_step_handler(
                 bot.send_message(msg.chat.id, msg_trans),
-				trans)
+                trans)
 			
         elif message.text == 'KillTheBotRightNow':
             a = 1 / 0
@@ -71,24 +76,23 @@ def main():
         print('after trans')
         print('msg:', msg.text, 'id:', msg.chat.id)
         
-        def trans_main(msg):
-            user = get_user(msg.chat.id)
-            if type(user) == dict:
-                a = transfer.tr(msg.chat.id, msg.text)   #в конструкторе транзакции происходит проверка
-                a.printt()
+        user = get_user(msg.chat.id)
+        if type(user) == dict:
+            a = transfer.tr(msg.chat.id, msg.text)   #в конструкторе транзакции происходит проверка
+            a.printt()
 				
-                if a.available_to_trans :
-                    if user['Group'] == 'Student':
-                        if a.available_to_trans_1:
-                            a.main()
-                            bot.send_message(msg.chat.id, msg_good_tr)
-                    elif user['Group'] == 'Teacher':
-                        a.main_teacher()
+            if a.available_to_trans :
+                if user['Group'] == 'Student':
+                    if a.available_to_trans_1:
+                        a.main()
                         bot.send_message(msg.chat.id, msg_good_tr)
-                    else:
-                        bot.send_message(msg.chat.id, msg_wrong_st)
+                elif user['Group'] == 'Teacher':
+                    a.main_teacher()
+                    bot.send_message(msg.chat.id, msg_good_tr)
                 else:
-                    bot.send_message(msg.chat.id, msg_wrong_tr)
+                    bot.send_message(msg.chat.id, msg_wrong_st)
+            else:
+                bot.send_message(msg.chat.id, msg_wrong_tr)
 
     try:
         bot.polling(none_stop=True)
