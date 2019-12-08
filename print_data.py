@@ -42,6 +42,30 @@ def print_operations():
 
 #######
 
+def get_user(id):
+	data = load_users()
+	
+    user = ''
+    for u in data:
+        if u['TelegramChatId'] == str(id):
+            user = u
+            break
+
+    return user
+
+def str_user(id):
+    if type(user) == dict:
+        info = ['Имя: ', user['Name'], ' ', user['Surname'], '\n',
+                'Id: ', user['TelegramChatId'], '\n',
+                'Баланс: ', user['Balance'], '\n',
+                'Статус: ', user['Group']]
+		
+        print(''.join(info))
+        return ''.join(info)
+    else:
+        print('No such user in database')
+        return 'No such user in database'
+
 def str_users():
     data = load_users()
 	
@@ -56,14 +80,3 @@ def str_users():
         strr+='\n'
         
     return strr
-
-def get_user(id):
-	data = load_users()
-	
-    user = ''
-    for u in data:
-        if u['TelegramChatId'] == str(id):
-            user = u
-            break
-
-    return user
