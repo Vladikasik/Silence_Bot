@@ -2,7 +2,7 @@ import json
 
 # загрузка базы пользователей из файла
 def load_users():
-    with open('/home/project/database/users.json', 'r') as file:
+    with open(r'../database/users.json', 'r') as file:
         data = json.loads(file.read())
         file.close()
     return data
@@ -15,7 +15,7 @@ def save_users(data):
 
 # загрузка базы операций из файла
 def load_operations():
-    with open('/home/project/database/users.json', 'r') as file:
+    with open(r'../database/operations.json', 'r') as file:
         data = json.loads(file.read())
         file.close()
     return data
