@@ -1,13 +1,16 @@
 import json
-a = input('Введит имя ')
+
+a = input('Введите имя ')
 b = input('Введите фамилию ')
 c = input('Введите пригласительный код ')
 d = input('S - student, T - teacher ')
 
-with open('/home/project/database/users.json', 'r') as f:
-    data = json.loads(f.read())
-f.close()
+# загружаем текущую базу
+with open('/home/project/database/users.json', 'r') as file:
+    data = json.loads(file.read())
+    file.close()
 
+# добавляем нового пользователя
 if d == 'S' or d == 's':
     person_dict = {"TelegramChatId": "",
                    "WebsiteUsername": "",
@@ -31,10 +34,8 @@ elif d == 'T' or d == 't':
                    "Group": "Teacher"}
     data.append(person_dict)
 
-
-
-
+    
+# сохраняем новую базу
 with open('/home/project/database/users.json', 'w') as file:
     json.dump(data, file, indent=2, ensure_ascii=False)
-
-file.close()
+    file.close()

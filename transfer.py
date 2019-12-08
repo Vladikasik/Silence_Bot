@@ -1,16 +1,15 @@
-
 import var
 import json
 import os
 import time
+from print_data import *
 
 class tr:
+	
+	def __init__(self,id,msg):
 
-
-	def __init__(self,Username_1,message):
-
-		self.User_1_id = Username_1
-		self.Username_2,self.transfer_sum = message.split(' ')
+		self.id = id
+		self.Username_2, self.transfer_sum = msg.split(' ')
 		self.balance_1 = 0
 		self.balance_2 = 0
 		self.available_to_trans = False
@@ -18,55 +17,34 @@ class tr:
 		self.indexes = [0,0]
 		self.available_to_trans_1 = False
 
-
-
-	def start(self):
 		sch = 0
-		with open(r'/home/project/database/users.json', 'r') as f:
-			self.data = json.loads(f.read())
-			for i in self.data:
-				sch+=1
-
-				if i['TelegramChatId'] == str(self.User_1_id):
-					self.balance_1 = int(i['Balance'])
-					self.indexes[0] = sch
-
-		f.close()
-		sch = 0
-		with open(r'/home/project/database/users.json', 'r') as f:
-			data = json.loads(f.read())
-			for i in data:
-				sch+=1
-
-				if i['Surname'] == self.Username_2:
-					self.available_to_trans_1 = True
-					print('2nd user',self.available_to_trans_1)
-					self.balance_2 = int(i['Balance'])
-					self.indexes[1] = sch
-		f.close()
-
-	def is_available(self):
-		print(int(self.transfer_sum) <= self.balance_1,self.available_to_trans_1)
-		if int(self.transfer_sum) <= self.balance_1 and self.available_to_trans_1:
+		self.data = load_users()
+		for user in self.data:
+			sch+=1
+			if user['TelegramChatId'] == str(self.User_1_id):
+				self.balance_1 = int(user['Balance'])
+				self.indexes[0] = sch
+				
+			if user['Surname'] == self.Username_2:
+				self.available_to_trans_1 = True
+				print('2nd user',self.available_to_trans_1)
+				self.balance_2 = int(user['Balance'])
+				self.indexes[1] = sch
+	
+		if int(self.transfer_sum) <= self.balance_1:
 			self.available_to_trans = True
-		else:
-			self.available_to_trans = False
-
-		return self.available_to_trans
-
 
 	def printt(self):
 		print(self.transfer_sum,self.data[self.indexes[0]-1]['Balance'])
-		print(self.User_1_id, self.Username_2)
+		print(self.id, self.Username_2)
 		print(self.balance_1,self.balance_2)
-
 		print('###')
 
 	def main(self):
 
 		if self.transfer_sum > 0:
 			print(self.indexes)
-			if self.is_available():
+			if self.available_to_trans:
 				self.data[self.indexes[0] - 1]['Balance'] = str(
 					int(self.data[self.indexes[0] - 1]['Balance']) - int(self.transfer_sum))
 				print('Balance 1 was changed')
@@ -75,9 +53,7 @@ class tr:
 					int(self.data[self.indexes[1] - 1]['Balance']) + int(self.transfer_sum))
 				print('Balance 2 was changed')
 
-				with open('/home/project/database/users.json', 'w') as file:
-					json.dump(self.data, file, indent=2, ensure_ascii=False)
-				file.close()
+				save_users(self.data)
 
 			# не трогайте пж
 			with open(r'../database/operations.json', 'r') as f:
@@ -112,10 +88,7 @@ class tr:
 				int(self.data[self.indexes[1] - 1]['Balance']) + int(self.transfer_sum))
 			print('Balance 2 was changed')
 
-			with open('/home/project/database/users.json', 'w') as file:
-				json.dump(self.data, file, indent=2, ensure_ascii=False)
-			file.close()
-
+			save_users(self.data)
 
 		# не трогайте пж
 		with open(r'../database/operations.json', 'r') as f:

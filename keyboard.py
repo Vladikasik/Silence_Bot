@@ -1,6 +1,8 @@
 from telebot import types
+
+bttn_send = '⬆️Перевод'
+bttn_info = '🥭Баланс'
+
 markup = types.ReplyKeyboardMarkup()
-markup.row('💵Отправить деньги')
-markup.row('💰Посмотреть баланс')
-bttn_send = '💵Отправить деньги'
-bttn_info = '💰Посмотреть баланс'
+markup.row(bttn_send)
+markup.row(bttn_info)
