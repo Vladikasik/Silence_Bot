@@ -15,7 +15,6 @@ class tr:
 		else:
 			self.Username_2, self.transfer_sum = ' ',' '
 
-		print(self.Username_2)
 		self.balance_1 = 0
 		self.balance_2 = 0
 		self.available_to_trans = False
@@ -48,7 +47,7 @@ class tr:
 		else:
 			self.available_to_trans = False
 
-		self.transfer_sum_massiv = self.transfer_sum.spit()
+		self.transfer_sum_massiv = list(self.transfer_sum)
 
 		intt = '0123456789'
 
@@ -73,7 +72,7 @@ class tr:
 
 		self.transfer_sum_massiv = list(self.transfer_sum)
 
-		intt = '0123456789'
+		intt = '-0123456789'
 
 		for item in self.transfer_sum_massiv:
 			if item in intt:
@@ -87,8 +86,6 @@ class tr:
 		else:
 			self.available_to_trans = False
 			self.available_to_trans_1 = False
-
-		print(self.available_to_trans and self.available_to_trans_1, '#', self.available_to_trans, self.available_to_trans_1)
 		return self.available_to_trans and self.available_to_trans_1
 
 	def printt_before(self):
