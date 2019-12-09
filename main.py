@@ -42,6 +42,16 @@ def main():
         print('msg:',msg.text,'id:',msg.chat.id)
         bot.send_message(msg.chat.id, msg_help)
 
+    @bot.message_handler(commands=['any'])
+    def any_message(msg):
+        print('/any')
+        print('msg:',msg.text,'id:',msg.chat.id)
+        bot.register_next_step_handler(bot.send_message(msg.chat.id,msg_any),save_any)
+    def save_any(msg):
+        with open('/home/project/database/support.txt','a') as file:
+            support_message = str(msg.text) + '\n'
+            file.write(support_message)
+
     # Обработка команды /users
     @bot.message_handler(commands=['users'])
     def users_message(msg):
