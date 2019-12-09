@@ -50,6 +50,8 @@ def main():
         with open('/home/project/database/support.txt','a') as file:
             support_message = str(msg.text) + '\n'
             file.write(support_message)
+        file.close()
+        bot.send_message(msg.chat.id,msg_any_done)
 
     # Обработка команды /users
     @bot.message_handler(commands=['users'])
