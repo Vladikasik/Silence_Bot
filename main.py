@@ -82,18 +82,33 @@ def main():
             a = transfer.tr(msg.chat.id, msg.text)   #в конструкторе транзакции происходит проверка
             a.printt_before()
 
-            if a.available_to_trans :
-                if user['Group'] == 'Student':
-                    if a.available_to_trans_1:
-                        a.main()
-                        bot.send_message(msg.chat.id, msg_good_tr)
-                elif user['Group'] == 'Teacher':
-                    a.main_teacher()
-                    bot.send_message(msg.chat.id, msg_good_tr)
+            # if a.available_to_trans :
+            #     if user['Group'] == 'Student':
+            #         if a.available_to_trans_1:
+            #             a.main()
+            #             bot.send_message(msg.chat.id, msg_good_tr)
+            #     elif user['Group'] == 'Teacher':
+            #         a.main_teacher()
+            #         bot.send_message(msg.chat.id, msg_good_tr)
+            #     else:
+            #         bot.send_message(msg.chat.id, msg_wrong_st)
+            # else:
+            #     bot.send_message(msg.chat.id, msg_wrong_tr)
+
+            if user['Group'] == 'Student':
+                if a.availavle_for_student():
+                    a.main_student()
+                    bot.send_message(msg.chat.id,msg_good_tr)
                 else:
-                    bot.send_message(msg.chat.id, msg_wrong_st)
+                    bot.send_message(msg.chat.id,msg_wrong_tr)
+            elif user['Group'] == 'Teacher':
+                if a.availavle_for_teacher():
+                    a.main_teacher()
+                    bot.send_message(msg.chat.id,msg_good_tr)
+                else:
+                    bot.send_message(msg.chat.id,msg_wrong_tr)
             else:
-                bot.send_message(msg.chat.id, msg_wrong_tr)
+                bot.send_message(msg.chat.id,msg_wrong_st)
 
             a.printt_after()
 

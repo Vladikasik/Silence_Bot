@@ -36,13 +36,47 @@ class tr:
 				self.balance_2 = int(user['Balance'])
 				self.indexes[1] = sch
 	
-		if int(self.transfer_sum) <= self.balance_1:
+	def availavle_for_student(self):
+
+		if int(self.transfer_sum) <= self.balance_1 and self.transfer_sum >0:
 			self.available_to_trans = True
+		else:
+			self.available_to_trans = False
+
+		self.transfer_sum_massiv = self.transfer_sum.spit()
+
+		intt = '0123456789'
+
+		for item in self.transfer_sum_massiv:
+			if item in intt:
+				self.available_to_trans_1 = True
+			else:
+				self.available_to_trans_1 = False
+				break
+
+		return self.available_to_trans and self.available_to_trans_1
+
+	def availavle_for_teacher(self):
+
+		self.available_to_trans = True # у учителей нету ограницения на перевод
+
+		self.transfer_sum_massiv = self.transfer_sum.spit()
+
+		intt = '0123456789'
+
+		for item in self.transfer_sum_massiv:
+			if item in intt:
+				self.available_to_trans_1 = True
+			else:
+				self.available_to_trans_1 = False
+				break
+
+		return self.available_to_trans and self.available_to_trans_1
 
 	def printt_before(self):
 		print('###')
 		print('Transf_sum',self.transfer_sum)
-		print('Users with their balances before transfer')
+		print('Userreturn self.available_to_trans and self.available_to_trans_1s with their balances before transfer')
 		print(self.Username_1, self.Username_2)
 		print(self.balance_1,self.balance_2)
 		print('###')
@@ -57,7 +91,7 @@ class tr:
 		print(self.balance_1,self.balance_2)
 		print('###')
 
-	def main(self):
+	def main_student(self):
 
 		if self.transfer_sum > 0:
 			if self.available_to_trans:
