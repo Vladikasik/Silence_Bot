@@ -12,6 +12,8 @@ class tr:
 		self.id = id
 		if len(self.massiv) == 2:
 			self.Username_2, self.transfer_sum = msg.split(' ')
+		else:
+			self.Username_2, self.transfer_sum = ' ',' '
 
 		print(self.Username_2)
 		self.balance_1 = 0
