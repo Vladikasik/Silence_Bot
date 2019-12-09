@@ -10,7 +10,9 @@ class tr:
 		self.massiv = msg.split(' ')
 
 		self.id = id
-		self.Username_2, self.transfer_sum = msg.split(' ')
+		if len(self.massiv) == 2:
+			self.Username_2, self.transfer_sum = msg.split(' ')
+
 		print(self.Username_2)
 		self.balance_1 = 0
 		self.balance_2 = 0
