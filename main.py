@@ -29,7 +29,7 @@ def main():
             if user['InviteCode'] == msg.text:
                 if user['TelegramChatId'] == '':
                     indexx = data.index(user)
-                    data[indexx]['TelegramChatId'] = str(Id)
+                    data[indexx]['TelegramChatId'] = str(msg.text)
                     print('The new ChatId has been set done.')
                     bot.send_message(msg.chat.id,msg_done_id)
                 break
