@@ -3,7 +3,6 @@ import var
 from messages import *
 from print_data import *
 import keyboard
-import start_disk
 import transfer
 def main():
     #тут нельзя было импортировать так *
