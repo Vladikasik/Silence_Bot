@@ -88,6 +88,7 @@ class tr:
 			self.available_to_trans = False
 			self.available_to_trans_1 = False
 
+		print(self.available_to_trans and self.available_to_trans_1, '#', self.available_to_trans, self.available_to_trans_1)
 		return self.available_to_trans and self.available_to_trans_1
 
 	def printt_before(self):
