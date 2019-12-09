@@ -60,7 +60,7 @@ class tr:
 
 		self.available_to_trans = True # у учителей нету ограницения на перевод
 
-		self.transfer_sum_massiv = self.transfer_sum.spit()
+		self.transfer_sum_massiv = list(self.transfer_sum)
 
 		intt = '0123456789'
 
