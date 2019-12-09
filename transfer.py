@@ -7,6 +7,7 @@ from print_data import *
 class tr:
 	
 	def __init__(self,id,msg):
+		self.massiv = msg.split(' ')
 
 		self.id = id
 		self.Username_2, self.transfer_sum = msg.split(' ')
@@ -54,6 +55,12 @@ class tr:
 				self.available_to_trans_1 = False
 				break
 
+		if len(self.massiv) == 2:
+			pass
+		else:
+			self.available_to_trans = False
+			self.available_to_trans_1 = False
+
 		return self.available_to_trans and self.available_to_trans_1
 
 	def availavle_for_teacher(self):
@@ -70,6 +77,12 @@ class tr:
 			else:
 				self.available_to_trans_1 = False
 				break
+
+		if len(self.massiv) == 2:
+			pass
+		else:
+			self.available_to_trans = False
+			self.available_to_trans_1 = False
 
 		return self.available_to_trans and self.available_to_trans_1
 
