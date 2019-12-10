@@ -22,6 +22,7 @@ class tr:
 		self.indexes = [0,0]
 		self.available_to_trans_1 = False
 		self.Username_1 = get_user(self.id)
+		self.user_exists = False
 
 		sch = 0
 		self.data = load_users()
