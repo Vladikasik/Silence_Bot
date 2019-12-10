@@ -109,7 +109,7 @@ class tr:
 
 	def main_student(self):
 
-		if self.transfer_sum > 0:
+		if int(self.transfer_sum) > 0:
 			if self.available_to_trans:
 				self.data[self.indexes[0] - 1]['Balance'] = str(
 					int(self.data[self.indexes[0] - 1]['Balance']) - int(self.transfer_sum))
