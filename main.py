@@ -106,23 +106,25 @@ def main():
             # else:
             #     bot.send_message(msg.chat.id, msg_wrong_tr)
 
-            if user['Group'] == 'Student':
-                if a.availavle_for_student():
-                    a.main_student()
-                    bot.send_message(msg.chat.id,msg_good_tr)
-                    a.printt_after()
+            if a.user_exists:
+                if user['Group'] == 'Student':
+                    if a.availavle_for_student():
+                        a.main_student()
+                        bot.send_message(msg.chat.id, msg_good_tr)
+                        a.printt_after()
+                    else:
+                        bot.send_message(msg.chat.id, msg_wrong_tr)
+                elif user['Group'] == 'Teacher':
+                    if a.availavle_for_teacher():
+                        a.main_teacher()
+                        bot.send_message(msg.chat.id, msg_good_tr)
+                        a.printt_after()
+                    else:
+                        bot.send_message(msg.chat.id, msg_wrong_tr)
                 else:
-                    bot.send_message(msg.chat.id,msg_wrong_tr)
-            elif user['Group'] == 'Teacher':
-                if a.availavle_for_teacher():
-                    a.main_teacher()
-                    bot.send_message(msg.chat.id,msg_good_tr)
-                    a.printt_after()
-                else:
-                    bot.send_message(msg.chat.id,msg_wrong_tr)
+                    bot.send_message(msg.chat.id, msg_wrong_st)
             else:
-                bot.send_message(msg.chat.id,msg_wrong_st)
-
+                bot.send_message(msg.chat.id,msg_user_not_exsist)
 
 
     try:

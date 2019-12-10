@@ -35,14 +35,14 @@ class tr:
 
 				print('Username_2 was found.')
 
-				self.available_to_trans_1 = True
+				self.user_exists = True
 				print('2nd user',self.available_to_trans_1)
 				self.balance_2 = int(user['Balance'])
 				self.indexes[1] = sch
 	
 	def availavle_for_student(self):
 
-		if int(self.transfer_sum) <= self.balance_1 and self.transfer_sum >0:
+		if int(self.transfer_sum) <= self.balance_1 and int(self.transfer_sum) > 0 and self.user_exists :
 			self.available_to_trans = True
 		else:
 			self.available_to_trans = False
@@ -91,7 +91,7 @@ class tr:
 	def printt_before(self):
 		print('###')
 		print('Transf_sum',self.transfer_sum)
-		print('Userreturn with their balances before transfer')
+		print('Userreturn with their balances before transer')
 		print(self.Username_1['Surname'], self.Username_2)
 		print(self.balance_1,self.balance_2)
 		print('###')
