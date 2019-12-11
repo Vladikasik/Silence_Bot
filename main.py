@@ -182,12 +182,7 @@ def main():
 
             if a.user_exists:
                 if user['Group'] == 'Student':
-                    if a.availavle_for_student():
-                        a.do_student()
-                        bot.send_message(msg.chat.id, msg_good_tr)
-                        a.printt_after()
-                    else:
-                        bot.send_message(msg.chat.id, msg_wrong_tr)
+                    bot.send_message(msg.chat.id,msg_user_can_not)
                 elif (user['Group'] == 'Teacher') | (user['Group'] == 'Admin'):
                     if a.availavle_for_teacher():
                         a.do_teacher()
