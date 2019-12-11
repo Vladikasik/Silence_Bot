@@ -92,7 +92,7 @@ def main():
             bot.send_message(msg.chat.id,'Okay, do it later...')
             return        
         
-        if (type(admin) != dict) | (admin['Group'] != 'Admin'):
+        if (type(admin) != dict) | (admin['Group'] != 'test'):# на время чтобы затестиь
             print('Wrong user')
             bot.send_message(msg.chat.id,'Wrong user')
             return
