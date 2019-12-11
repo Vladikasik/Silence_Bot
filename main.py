@@ -4,6 +4,7 @@ from messages import *
 from print_data import *
 import keyboard
 import transfer
+from test11 import *
 def main():
     #тут нельзя было импортировать так *
     bot = telebot.TeleBot(var.token_of_bot)
@@ -16,6 +17,10 @@ def main():
         bot.register_next_step_handler(
             bot.send_message(msg.chat.id, msg_start, reply_markup=keyboard.markup),
             add_userId)
+
+    @bot.message_handler(commands=['start'])
+    def start_message(msg):
+        bot.register_next_step_handler(bot.send_message(msg.chat.id,'Введите код'),tesstt11)
 
     # После команды /start
     def add_userId(msg):
