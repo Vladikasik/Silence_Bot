@@ -75,9 +75,9 @@ def main():
             t = pend.pop()
             text = 'Транзакция:\n' + str(t) + '\n(Всего: ' + str(n) + ')\nПодтверждаете транзакцию? (Да / Нет / Отложить)'
             bot.register_next_step_handler(
-                bot.send_message(msg.chat.id, text, reply_markup=keyboard.markup),
+                bot.send_message(msg.chat.id, text, reply_markup=keyboard.markup_admin),
                 approve)
-        else
+        else:
             print('No pending trasactions')
             bot.send_message(msg.chat.id,'Необработанных транзакций нет.')        
         
