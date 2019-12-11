@@ -107,7 +107,7 @@ class tr:
 		print(self.balance_1,self.balance_2)
 		print('###')
 
-	def main_student(self):
+	def do_student(self):
 
 		'''if int(self.transfer_sum) > 0:
 			if self.available_to_trans:
@@ -147,7 +147,7 @@ class tr:
 
 		#детям нельзя переводить
 
-	def main_teacher(self):
+	def do_teacher(self):
 
 
 		'''if self.available_to_trans_1:
@@ -158,11 +158,7 @@ class tr:
 			save_users(self.data)'''
 		# нельзя переводить
 
-		# запись в operations
-		with open(r'../database/operations.json', 'r') as f:
-			data = json.loads(f.read())
-		f.close()
-
+		# добавление транзакции
 		time1 = time.strftime('%H %M %S %d %m').split()
 		time2 = ''
 		time3 = [':', ':', '_', '', '']
@@ -176,32 +172,12 @@ class tr:
 			'Value: ': self.transfer_sum,
 			'Time: ': time2
 		}
+		
+		data = load_operations()
 		data.append(trans_inf)
-
-		with open(r'../database/operations.json', 'w') as file:
-			json.dump(data, file, indent=2, ensure_ascii=False)
-		file.close()
-
-		# запись в pending
-		with open(r'../database/pending.json', 'r') as f:
-			data = json.loads(f.read())
-		f.close()
-
-		time1 = time.strftime('%H %M %S %d %m').split()
-		time2 = ''
-		time3 = [':', ':', '_', '', '']
-		for i in range(0, len(time1)):
-			time2 += time1[i]
-			time2 += time3[i]
-
-		trans_inf = {
-			'From: ': self.Username_1['Surname'],
-			'To: ': self.Username_2,
-			'Value: ': self.transfer_sum,
-			'Time: ': time2
-		}
+		save_operations(data)
+		
+		data = load_pending()
 		data.append(trans_inf)
+		save_pending(data)
 
-		with open(r'../database/pending.json', 'w') as file:
-			json.dump(data, file, indent=2, ensure_ascii=False)
-		file.close()
