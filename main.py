@@ -54,11 +54,11 @@ def main():
         bot.send_message(msg.chat.id,msg_any_done)
 
     # Обработка команды /users
-    @bot.message_handler(commands=['users'])
+    '''@bot.message_handler(commands=['users'])
     def users_message(msg):
         print('/users')
         print('msg:',msg.text,'id:',msg.chat.id)
-        bot.send_message(msg.chat.id,str_users())
+        bot.send_message(msg.chat.id,str_users())'''
     
     # Обработка нажатия кнопок
     @bot.message_handler(func=lambda msg: True)

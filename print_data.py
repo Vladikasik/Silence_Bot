@@ -67,10 +67,8 @@ def get_user_by_surname(surname):
 def str_user(id):
     user = get_user(id)
     if type(user) == dict:
-        info = ['Имя: ', user['Name'], ' ', user['Surname'], '\n',
-                'Id: ', user['TelegramChatId'], '\n',
-                'Баланс: ', user['Balance'], '\n',
-                'Статус: ', user['Group']]
+        info = ['Имя: ', user['Name'], ' ', user['Surname'],' (',user['Group']],') ',\
+                'Баланс: ', user['Balance'], '\n']
 
         print(''.join(info))
         return ''.join(info)
