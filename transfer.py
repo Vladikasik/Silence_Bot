@@ -4,7 +4,7 @@ import os
 import time
 from print_data import *
 
-class tr:
+class trans:
 	
 	def __init__(self,id,msg):
 		self.massiv = msg.split(' ')
