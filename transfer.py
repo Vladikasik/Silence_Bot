@@ -109,7 +109,7 @@ class tr:
 
 	def main_student(self):
 
-		if int(self.transfer_sum) > 0:
+		'''if int(self.transfer_sum) > 0:
 			if self.available_to_trans:
 				self.data[self.indexes[0] - 1]['Balance'] = str(
 					int(self.data[self.indexes[0] - 1]['Balance']) - int(self.transfer_sum))
@@ -143,19 +143,22 @@ class tr:
 
 			with open(r'../database/operations.json', 'w') as file:
 				json.dump(data, file, indent=2, ensure_ascii=False)
-			file.close()
+			file.close()'''
+
+		#детям нельзя переводить
 
 	def main_teacher(self):
 
 
-		if self.available_to_trans_1:
+		'''if self.available_to_trans_1:
 			self.data[self.indexes[1] - 1]['Balance'] = str(
 				int(self.data[self.indexes[1] - 1]['Balance']) + int(self.transfer_sum))
 			print('Balance 2 was changed')
 
-			save_users(self.data)
+			save_users(self.data)'''
+		# нельзя переводить
 
-		# не трогайте пж
+		# запись в operations
 		with open(r'../database/operations.json', 'r') as f:
 			data = json.loads(f.read())
 		f.close()
@@ -179,7 +182,26 @@ class tr:
 			json.dump(data, file, indent=2, ensure_ascii=False)
 		file.close()
 
+		# запись в pending
+		with open(r'../database/pending.json', 'r') as f:
+			data = json.loads(f.read())
+		f.close()
 
+		time1 = time.strftime('%H %M %S %d %m').split()
+		time2 = ''
+		time3 = [':', ':', '_', '', '']
+		for i in range(0, len(time1)):
+			time2 += time1[i]
+			time2 += time3[i]
 
+		trans_inf = {
+			'From: ': self.Username_1,
+			'To: ': self.Username_2,
+			'Value: ': self.transfer_sum,
+			'Time: ': time2
+		}
+		data.append(trans_inf)
 
-
+		with open(r'../database/pending.json', 'w') as file:
+			json.dump(data, file, indent=2, ensure_ascii=False)
+		file.close()
