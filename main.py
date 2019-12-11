@@ -18,7 +18,7 @@ def main():
             bot.send_message(msg.chat.id, msg_start, reply_markup=keyboard.markup),
             add_userId)
 
-    @bot.message_handler(commands=['start'])
+    @bot.message_handler(commands=['test'])
     def start_message(msg):
         bot.register_next_step_handler(bot.send_message(msg.chat.id,'Введите код'),tesstt11)
 
