@@ -26,6 +26,19 @@ def save_operations(data):
         json.dump(data, file, indent=2, ensure_ascii=False)
         file.close()
         
+# загрузка необработанных операций из файла
+def load_pending():
+    with open(r'../database/pending.json', 'r') as file:
+        data = json.loads(file.read())
+        file.close()
+    return data
+    
+# сохранение необработанных операций в файл
+def save_pending(data):
+    with open(r'../database/pending.json', 'w') as file:
+        json.dump(data, file, indent=2, ensure_ascii=False)
+        file.close()
+        
 #######
 
 def print_users():
@@ -73,8 +86,8 @@ def str_user(id):
         print(''.join(info))
         return ''.join(info)
     else:
-        print('No such user in database')
-        return 'No such user in database'
+        print('No such user in database.')
+        return 'Пользователь не найден в базе. Зарегистрируйтесь с помощью команды /start или обратитесь к администратору.'
 
 def str_users():
     data = load_users()
