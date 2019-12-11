@@ -167,7 +167,7 @@ class trans:
 			time2 += time3[i]
 
 		trans_inf = {
-			'From: ': self.Username_1,
+			'From: ': self.Username_1['Surname'],
 			'To: ': self.Username_2,
 			'Value: ': self.transfer_sum,
 			'Time: ': time2
