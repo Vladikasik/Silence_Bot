@@ -106,9 +106,9 @@ def main():
 
         t = pend.pop()            #взять последнюю транзакцию
 
-        name1 = t['From']
-        name2 = t['To']
-        value = int(t['Value'])
+        name1 = t['From: ']
+        name2 = t['To: ']
+        value = int(t['Value: '])
 
         user1 = ''
         user2 = ''
