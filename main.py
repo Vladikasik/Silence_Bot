@@ -7,7 +7,6 @@ import transfer
 from test11 import *
 
 def main():
-    #тут нельзя было импортировать так *
     bot = telebot.TeleBot(var.token_of_bot)
     
 ##### Обработка команды /start
@@ -62,18 +61,29 @@ def main():
             file.close()
         bot.send_message(msg.chat.id,msg_any_done)
         #bot.send_message(leo_ivanov_chat_id,msg) #что-нибудь такое получится?
-    
+
 ##### Обработка команды /approve - только для администратора
     @bot.message_handler(commands=['approve'])
     def approve_message(msg):
         print('/approve')
         print('msg:',msg.text,'id:',msg.chat.id)
         
+        admin = get_user(msg.chat.id)
+        
+        if type(admin) != dict:
+            print('User data error')
+            bot.send_message(msg.chat.id,'Ошибка данных пользователя.')
+            return
+        elif admin['Group'] != 'Admin'
+            print('No admin permission')
+            bot.send_message(msg.chat.id,'Недостаточно прав. Команда доступна только администратору.')
+            return    
+        
         pend = load_pending()
         n = len(pend)
         if n > 0:
             t = pend.pop()
-            text = 'Транзакция:\n' + str(t) + '\n(Всего: ' + str(n) + ')\nПодтверждаете транзакцию? (Да / Нет / Отложить)'
+            text = 'Транзакция:\n' + str(t) + '\n(Всего: ' + str(n) + ')\nПодтверждаете транзакцию?\n(Да / Нет / Отложить)'
             bot.register_next_step_handler(
                 bot.send_message(msg.chat.id, text, reply_markup=keyboard.markup_admin),
                 approve)
@@ -89,19 +99,14 @@ def main():
         
         if msg.text == 'Отложить':
             print('Okay, do it later...')
-            bot.send_message(msg.chat.id,'Okay, do it later...')
-            return        
-        
-        if (type(admin) != dict) | (admin['Group'] != 'Admin'):
-            print('Wrong user')
-            bot.send_message(msg.chat.id,'Wrong user')
-            return
+            bot.send_message(msg.chat.id,'Обработка транзакции отложена.', reply_markup=keyboard.markup)
+            return              
    
         pend = load_pending()     #загрузить необработанные транзакции
         
         if len(pend) == 0:        #не должно быть
             print('Error len = 0')
-            bot.send_message(msg.chat.id,'Error len = 0')
+            bot.send_message(msg.chat.id,'Error len = 0', reply_markup=keyboard.markup)
             return
 
         t = pend.pop()            #взять последнюю транзакцию
@@ -109,6 +114,11 @@ def main():
         name1 = t['From']
         name2 = t['To']
         value = int(t['Value'])
+        
+        if name1 == name2:
+            print('Same user error in transaction')
+            bot.send_message(msg.chat.id,'Нельзя осуществлять перевод самому себе.', reply_markup=keyboard.markup)
+            return        
 
         user1 = ''
         user2 = ''
@@ -120,8 +130,8 @@ def main():
                  user2 = u
             
         if (type(user1) != dict) | (type(user2) != dict):
-            print('Wrong users in transaction')
-            bot.send_message(msg.chat.id,'Wrong users in transaction')
+            print('User data error in transaction')
+            bot.send_message(msg.chat.id,'User data error in transaction', reply_markup=keyboard.markup)
             return
         
         print(name1,'->',name2)
@@ -138,16 +148,16 @@ def main():
             
             print('after:', user1['Balance'], '->', user2['Balance'])
             print('Transaction has been approved.')
-            bot.send_message(msg.chat.id,'Transaction has been approved.')
+            bot.send_message(msg.chat.id,'Транзакция успешно подтверждена.', reply_markup=keyboard.markup)
             
         elif msg.text == 'Нет':
             save_pending(pend)
-       
+
             print('Transaction has been declained.')
-            bot.send_message(msg.chat.id,'Transaction has been declained.')
+            bot.send_message(msg.chat.id,'Транзакция успешно отклонена.', reply_markup=keyboard.markup)
 
     
-##### Обработка нажатия кнопок
+##### Обработка всех остальных сообщений или кнопок
     @bot.message_handler(func=lambda msg: True)
     def main_func(msg):
         print('button')
