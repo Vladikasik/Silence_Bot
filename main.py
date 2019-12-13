@@ -18,11 +18,6 @@ def main():
             bot.send_message(msg.chat.id, msg_start, reply_markup=keyboard.markup),
             add_userId)
         
-    # Обработка закрытой команды /test
-    #@bot.message_handler(commands=['test'])
-    #def start_message(msg):
-    #    bot.register_next_step_handler(bot.send_message(msg.chat.id,'Введите код'),tesstt11)
-
     # После команды /start
     def add_userId(msg):
         print('after /start')
@@ -84,6 +79,7 @@ def main():
         if n > 0:
             t = pend.pop()
             text = 'Транзакция:\n' + str(t) + '\n(Всего: ' + str(n) + ')\nПодтверждаете транзакцию?\n(Да / Нет / Отложить)'
+            print(text)
             bot.register_next_step_handler(
                 bot.send_message(msg.chat.id, text, reply_markup=keyboard.markup_admin),
                 approve)
@@ -111,33 +107,39 @@ def main():
 
         t = pend.pop()            #взять последнюю транзакцию
 
-        name1 = t['From:']
-        name2 = t['To:']
-        value = int(t['Value:'])
-        
-        if name1 == name2:
-            print('Same user error in transaction')
-            bot.send_message(msg.chat.id,'Нельзя осуществлять перевод самому себе.', reply_markup=keyboard.markup)
-            return        
+        if msg.text == 'Нет':
+            save_pending(pend)
 
-        user1 = ''
-        user2 = ''
-        data = load_users()
-        for u in data:
-            if u['Surname'] == name1:
-                 user1 = u
-            elif u['Surname'] == name2:
-                 user2 = u
+            print('Transaction has been declained.')
+            bot.send_message(msg.chat.id,'Транзакция успешно отклонена.', reply_markup=keyboard.markup)
             
-        if (type(user1) != dict) | (type(user2) != dict):
-            print('User data error in transaction')
-            bot.send_message(msg.chat.id,'User data error in transaction', reply_markup=keyboard.markup)
-            return
+        elif msg.text == 'Да':
+            name1 = t['From:']
+            name2 = t['To:']
+            value = int(t['Value:'])    
+
+            user1 = ''
+            user2 = ''
+            data = load_users()
+            for u in data:
+                if u['Surname'] == name1:
+                     user1 = u
+                elif u['Surname'] == name2:
+                     user2 = u
         
-        print(name1,'->',name2)
-        print('before:', user1['Balance'], '->', user2['Balance'])
-        
-        if msg.text == 'Да':
+            if (type(user1) != dict) | (type(user2) != dict):
+                print('User data error in transaction')
+                bot.send_message(msg.chat.id,'User data error in transaction', reply_markup=keyboard.markup)
+                return
+            
+            if name1 == name2:
+                print('Same user error in transaction')
+                bot.send_message(msg.chat.id,'Нельзя осуществлять перевод самому себе.', reply_markup=keyboard.markup)
+                return    
+            
+            print(name1,'->',name2)
+            print('before:', user1['Balance'], '->', user2['Balance'])
+            
             user2['Balance'] = str(int(user2['Balance']) + value)
 
             if user1['Group'] == 'Student':
@@ -149,12 +151,6 @@ def main():
             print('after:', user1['Balance'], '->', user2['Balance'])
             print('Transaction has been approved.')
             bot.send_message(msg.chat.id,'Транзакция успешно подтверждена.', reply_markup=keyboard.markup)
-            
-        elif msg.text == 'Нет':
-            save_pending(pend)
-
-            print('Transaction has been declained.')
-            bot.send_message(msg.chat.id,'Транзакция успешно отклонена.', reply_markup=keyboard.markup)
 
     
 ##### Обработка всех остальных сообщений или кнопок
