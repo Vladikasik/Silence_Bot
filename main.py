@@ -111,9 +111,9 @@ def main():
 
         t = pend.pop()            #взять последнюю транзакцию
 
-        name1 = t['From']
-        name2 = t['To']
-        value = int(t['Value'])
+        name1 = t['From:']
+        name2 = t['To:']
+        value = int(t['Value:'])
         
         if name1 == name2:
             print('Same user error in transaction')
