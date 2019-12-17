@@ -140,17 +140,26 @@ def main():
             print(name1,'->',name2)
             print('before:', user1['Balance'], '->', user2['Balance'])
             
+            # здесь происходит основной перевод! -------------------------
             user2['Balance'] = str(int(user2['Balance']) + value)
 
             if user1['Group'] == 'Student':
                 user1['Balance'] = str(int(user1['Balance']) - value)
-
+            # ------------------------------------------------------------
+            
             save_pending(pend)
             save_users(data)
             
             print('after:', user1['Balance'], '->', user2['Balance'])
             print('Transaction has been approved.')
-            bot.send_message(msg.chat.id,'Транзакция успешно подтверждена.', reply_markup=keyboard.markup)
+            
+            # текст сообщения для пользователя 2
+            text = 'Пользователь ' + name1
+            text += ' снял(а) с Вас ' if (value < 0) else ' перевел(а) Вам '
+            text += str(abs(value)) + '🥭.'
+            
+            bot.send_message(int(user2['TelegtramChatId']), text, reply_markup=keyboard.markup)
+            bot.send_message(msg.chat.id, 'Транзакция успешно подтверждена.', reply_markup=keyboard.markup)
 
     
 ##### Обработка всех остальных сообщений или кнопок
