@@ -4,7 +4,6 @@ from messages import *
 from print_data import *
 import keyboard
 import transfer
-from test11 import *
 
 def main():
     bot = telebot.TeleBot(var.token_of_bot)
