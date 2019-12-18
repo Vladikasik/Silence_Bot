@@ -6,38 +6,37 @@ from print_data import *
 
 class trans:
 	
-	def __init__(self,id,text):		
+    def __init__(self,id,text):		
 		
         self.Username_2, self.transfer_sum = ' ',' '
         if text.type() == 'str' & len(text) > 0
             if len(text.split(' ')) == 2
-			    self.Username_2, self.transfer_sum = msg.split(' ')
+                self.Username_2, self.transfer_sum = msg.split(' ')
 
-		self.id = id
-		self.balance_1 = 0
-		self.balance_2 = 0
-		self.available_to_trans = False
-		self.indexes = [0,0]
-		self.available_to_trans_1 = False
-		self.User1 = get_user(self.id)
-		self.user_exists = False
-		self.data = load_users()
+        self.id = id
+        self.balance_1 = 0
+        self.balance_2 = 0
+        self.available_to_trans = False
+        self.indexes = [0,0]
+        self.User1 = get_user(self.id)
+        self.user_exists = False
+        self.data = load_users()
 		
         sch = 0
-		for user in self.data:
-			sch+=1
-			if user['TelegramChatId'] == str(self.id):
-				self.balance_1 = int(user['Balance'])
-				self.indexes[0] = sch
+        for user in self.data:
+            sch+=1
+            if user['TelegramChatId'] == str(self.id):
+                self.balance_1 = int(user['Balance'])
+                self.indexes[0] = sch
 				
-			if user['Surname'] == self.Username_2:
-				print('Username_2 was found.')
-				print('2nd user',self.available_to_trans_1)
-				self.user_exists = True
-				self.balance_2 = int(user['Balance'])
-				self.indexes[1] = sch
+            if user['Surname'] == self.Username_2:
+                print('Username_2 was found.')
+                print('2nd user',self.available_to_trans_1)
+                self.user_exists = True
+                self.balance_2 = int(user['Balance'])
+                self.indexes[1] = sch
 	
-	def availavle_for_student(self):
+    def availavle_for_student(self):
 
 		if int(self.transfer_sum) <= self.balance_1 and int(self.transfer_sum) > 0 and self.user_exists :
 			self.available_to_trans = True
@@ -63,7 +62,7 @@ class trans:
 
 		return self.available_to_trans and self.available_to_trans_1
 
-	def availavle_for_teacher(self):
+    def availavle_for_teacher(self):
 
 		self.available_to_trans = True # у учителей нету ограницения на перевод
 
@@ -85,7 +84,7 @@ class trans:
 			self.available_to_trans_1 = False
 		return self.available_to_trans and self.available_to_trans_1
 
-	def printt_before(self):
+    def printt_before(self):
 		print('###')
 		print('Transf_sum',self.transfer_sum)
 		print('Userreturn with their balances before transer')
@@ -93,7 +92,7 @@ class trans:
 		print(self.balance_1,self.balance_2)
 		print('###')
 
-	def printt_after(self):
+    def printt_after(self):
 		print('###')
 		print('Transf_sum',self.transfer_sum)
 		print('Users with their balances after transfer')
@@ -103,57 +102,11 @@ class trans:
 		print(self.balance_1,self.balance_2)
 		print('###')
 
-	def do_student(self):
-
-		'''if int(self.transfer_sum) > 0:
-			if self.available_to_trans:
-				self.data[self.indexes[0] - 1]['Balance'] = str(
-					int(self.data[self.indexes[0] - 1]['Balance']) - int(self.transfer_sum))
-				print('Balance 1 was changed')
-
-				self.data[self.indexes[1] - 1]['Balance'] = str(
-					int(self.data[self.indexes[1] - 1]['Balance']) + int(self.transfer_sum))
-				print('Balance 2 was changed')
-
-				save_users(self.data)
-
-			# не трогайте пж
-			with open(r'../database/operations.json', 'r') as f:
-				data = json.loads(f.read())
-			f.close()
-
-			time1 = time.strftime('%H %M %S %d %m').split()
-			time2 = ''
-			time3 = [':', ':', '_', '', '']
-			for i in range(0, len(time1)):
-				time2 += time1[i]
-				time2 += time3[i]
-
-			trans_inf = {
-				'From': self.User1['Surname'],
-				'To': self.Username_2,
-				'Value': self.transfer_sum,
-				'Time': time2
-			}
-			data.append(trans_inf)
-
-			with open(r'../database/operations.json', 'w') as file:
-				json.dump(data, file, indent=2, ensure_ascii=False)
-			file.close()'''
-
+    def do_student(self):
 		#детям нельзя переводить
+        return
 
-	def do_teacher(self):
-
-
-		'''if self.available_to_trans_1:
-			self.data[self.indexes[1] - 1]['Balance'] = str(
-				int(self.data[self.indexes[1] - 1]['Balance']) + int(self.transfer_sum))
-			print('Balance 2 was changed')
-
-			save_users(self.data)'''
-		# нельзя переводить
-
+    def do_teacher(self):
 		# добавление транзакции
 		time1 = time.strftime('%H %M %S %d %m').split()
 		time2 = ''
