@@ -70,8 +70,8 @@ class trans:
             else:
                 self.available_to_trans_1 = False
                 break
-
-		return self.available_to_trans and self.available_to_trans_1
+                
+        return self.available_to_trans and self.available_to_trans_1
 
     def printt_before(self):
         print('###')
