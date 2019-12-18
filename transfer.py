@@ -6,26 +6,24 @@ from print_data import *
 
 class trans:
 	
-	def __init__(self,id,msg):
-		self.massiv = msg.split(' ')
+	def __init__(self,id,text):		
+		
+        self.Username_2, self.transfer_sum = ' ',' '
+        if text.type() == 'str' & len(text) > 0
+            if len(text.split(' ')) == 2
+			    self.Username_2, self.transfer_sum = msg.split(' ')
 
 		self.id = id
-		if len(self.massiv) == 2:
-			self.Username_2, self.transfer_sum = msg.split(' ')
-		else:
-			self.Username_2, self.transfer_sum = ' ',' '
-
 		self.balance_1 = 0
 		self.balance_2 = 0
 		self.available_to_trans = False
-		self.data = None
 		self.indexes = [0,0]
 		self.available_to_trans_1 = False
-		self.Username_1 = get_user(self.id)
+		self.User1 = get_user(self.id)
 		self.user_exists = False
-
-		sch = 0
 		self.data = load_users()
+		
+        sch = 0
 		for user in self.data:
 			sch+=1
 			if user['TelegramChatId'] == str(self.id):
@@ -33,11 +31,9 @@ class trans:
 				self.indexes[0] = sch
 				
 			if user['Surname'] == self.Username_2:
-
 				print('Username_2 was found.')
-
-				self.user_exists = True
 				print('2nd user',self.available_to_trans_1)
+				self.user_exists = True
 				self.balance_2 = int(user['Balance'])
 				self.indexes[1] = sch
 	
@@ -93,7 +89,7 @@ class trans:
 		print('###')
 		print('Transf_sum',self.transfer_sum)
 		print('Userreturn with their balances before transer')
-		print(self.Username_1['Surname'], self.Username_2)
+		print(self.User1['Surname'], self.Username_2)
 		print(self.balance_1,self.balance_2)
 		print('###')
 
@@ -101,7 +97,7 @@ class trans:
 		print('###')
 		print('Transf_sum',self.transfer_sum)
 		print('Users with their balances after transfer')
-		print(self.Username_1['Surname'], self.Username_2)
+		print(self.User1['Surname'], self.Username_2)
 		self.balance_1 = get_user(self.id)['Balance']
 		self.balance_2 = get_user_by_surname(self.Username_2)['Balance']
 		print(self.balance_1,self.balance_2)
@@ -134,7 +130,7 @@ class trans:
 				time2 += time3[i]
 
 			trans_inf = {
-				'From': self.Username_1['Surname'],
+				'From': self.User1['Surname'],
 				'To': self.Username_2,
 				'Value': self.transfer_sum,
 				'Time': time2
@@ -167,7 +163,7 @@ class trans:
 			time2 += time3[i]
 
 		trans_inf = {
-			'From:': self.Username_1['Surname'],
+			'From:': self.User1['Surname'],
 			'To:': self.Username_2,
 			'Value:': self.transfer_sum,
 			'Time:': time2
