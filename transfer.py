@@ -54,23 +54,23 @@ class trans:
                 self.available_to_trans_1 = False
                 break
 
-		return self.available_to_trans and self.available_to_trans_1
+        return self.available_to_trans and self.available_to_trans_1
 
     def availavle_for_teacher(self):
 
-		self.available_to_trans = True # у учителей нету ограницения на перевод
+        self.available_to_trans = True # у учителей нету ограницения на перевод
 
-		self.transfer_sum_massiv = list(self.transfer_sum)
+        self.transfer_sum_massiv = list(self.transfer_sum)
 
-		intt = '-0123456789'
+        intt = '-0123456789'
 
-		for item in self.transfer_sum_massiv:
-			if item in intt:
-				self.available_to_trans_1 = True
-			else:
-				self.available_to_trans_1 = False
-				break
-            
+        for item in self.transfer_sum_massiv:
+            if item in intt:
+                self.available_to_trans_1 = True
+            else:
+                self.available_to_trans_1 = False
+                break
+
 		return self.available_to_trans and self.available_to_trans_1
 
     def printt_before(self):
