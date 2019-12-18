@@ -69,7 +69,7 @@ def main():
             print('User data error')
             bot.send_message(msg.chat.id,'Ошибка данных пользователя.')
             return
-        elif admin['Group'] != 'Admin'
+        elif admin['Group'] != 'Admin':
             print('No admin permission')
             bot.send_message(msg.chat.id,'Недостаточно прав. Команда доступна только администратору.')
             return    
