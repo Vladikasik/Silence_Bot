@@ -10,10 +10,13 @@ class trans:
 		
         self.Username_2 = ' '
         self.transfer_sum = ' '
-        print('type(text) =', type(text))
-        if (type(text) == 'str') and (len(text) > 0):
-            if len(text.split(' ')) == 2:
-                self.Username_2, self.transfer_sum = text.split(' ')
+
+        if type(text) != 'String':
+            print('text has a wrong type:', type(text))
+        elif len(text) == 0:
+            print('text is empty')
+        else
+            self.Username_2, self.transfer_sum = text.split(' ')
 
         self.id = id
         self.balance_1 = 0
@@ -50,7 +53,7 @@ class trans:
         intt = '0123456789'
 
         for item in self.transfer_sum_massiv:
-            if item in intt:
+            if item not in intt:
                 self.available_to_trans_1 = True
             else:
                 self.available_to_trans_1 = False
