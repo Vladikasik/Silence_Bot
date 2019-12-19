@@ -8,8 +8,9 @@ class trans:
 
     def __init__(self,id,text):
 		
-        self.Username_2, self.transfer_sum = ' ',' '
-        if type(text) == 'str' and len(text) > 0:
+        self.Username_2 = ' '
+        self.transfer_sum = ' '
+        if (type(text) == 'str') and (len(text) > 0):
             if len(text.split(' ')) == 2:
                 self.Username_2, self.transfer_sum = text.split(' ')
 
