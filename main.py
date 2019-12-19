@@ -183,7 +183,7 @@ def main():
                 bot.send_message(msg.chat.id, msg_trans),
                 do_trans)
 
-        elif msg.text == 'KillTheBotRightNow2':
+        elif msg.text == 'KillTheBotRightNow':
             a = 1 / 0
             print(a)
 
