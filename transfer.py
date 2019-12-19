@@ -21,6 +21,7 @@ class trans:
         self.balance_1 = 0
         self.balance_2 = 0
         self.available_to_trans = False
+        self.available_to_trans_1 = False
         self.indexes = [0,0]
         self.User1 = get_user(self.id)
         self.user_exists = False
