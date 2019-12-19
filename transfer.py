@@ -15,7 +15,7 @@ class trans:
             print('text has a wrong type:', type(text))
         elif len(text) == 0:
             print('text is empty')
-        else
+        else:
             self.Username_2, self.transfer_sum = text.split(' ')
 
         self.id = id
