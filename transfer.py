@@ -6,14 +6,13 @@ from print_data import *
 
 class trans:
 
-    def __init__(self,id,text):
+    def __init__(self,id,msg):
 		
         self.Username_2 = ' '
         self.transfer_sum = ' '
 
-        if type(text) != 'String':
-            print('text has a wrong type:', type(text))
-        elif len(text) == 0:
+        text = str(msg)
+        if len(text) == 0:
             print('text is empty')
         else:
             self.Username_2, self.transfer_sum = text.split(' ')

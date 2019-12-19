@@ -5,6 +5,8 @@ from print_data import *
 import keyboard
 import transfer
 
+spam_list = [872683288]
+
 def main():
     bot = telebot.TeleBot(var.token_of_bot)
     
@@ -54,7 +56,7 @@ def main():
             file.write(support_message)
             file.close()
         bot.send_message(msg.chat.id,msg_any_done)
-        #bot.send_message(leo_ivanov_chat_id,msg) #что-нибудь такое получится?
+        #bot.send_message(var.support_telegram_id,msg.text) #отправка сообщения специально выделенному контакту
 
 ##### Обработка команды /approve - только для администратора
     @bot.message_handler(commands=['approve'])
@@ -164,6 +166,10 @@ def main():
 ##### Обработка всех остальных сообщений или кнопок
     @bot.message_handler(func=lambda msg: True)
     def main_func(msg):
+        #временная проверка id из спам-списка
+        if msg.chat.id in spam_list:
+            return
+
         print('button')
         print('msg:',msg.text,'id:',msg.chat.id)
 
@@ -177,7 +183,7 @@ def main():
                 bot.send_message(msg.chat.id, msg_trans),
                 do_trans)
 
-        elif msg.text == 'KillTheBotRightNow':
+        elif msg.text == 'KillTheBotRightNow2':
             a = 1 / 0
             print(a)
 
