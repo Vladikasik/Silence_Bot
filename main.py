@@ -115,9 +115,9 @@ def main():
             bot.send_message(msg.chat.id,'Транзакция успешно отклонена.', reply_markup=keyboard.markup)
             
         elif msg.text == 'Да':
-            name1 = t['From:']
-            name2 = t['To:']
-            value = int(t['Value:'])    
+            name1 = t['From']
+            name2 = t['To']
+            value = int(t['Value'])    
 
             user1 = ''
             user2 = ''
