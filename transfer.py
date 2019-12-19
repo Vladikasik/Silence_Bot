@@ -79,16 +79,16 @@ class trans:
         return self.available_to_trans and self.available_to_trans_1
 
     def printt_before(self):
-        print('###')
-        print('Transf_sum',self.transfer_sum)
+        print('### printt_before:')
+        print('Transf_sum =',self.transfer_sum)
         print('Userreturn with their balances before transer')
         print(self.User1['Surname'], self.Username_2)
         print(self.balance_1,self.balance_2)
         print('###')
 
     def printt_after(self):
-        print('###')
-        print('Transf_sum',self.transfer_sum)
+        print('### printt_after:')
+        print('Transf_sum =',self.transfer_sum)
         print('Users with their balances after transfer')
         print(self.User1['Surname'], self.Username_2)
         self.balance_1 = get_user(self.id)['Balance']
@@ -110,10 +110,10 @@ class trans:
             time2 += time3[i]
 
         trans_inf = {
-            'From:': self.User1['Surname'],
-            'To:': self.Username_2,
-            'Value:': self.transfer_sum,
-            'Time:': time2
+            'From': self.User1['Surname'],
+            'To': self.Username_2,
+            'Value': self.transfer_sum,
+            'Time': time2
         }
 		
         data = load_operations()
