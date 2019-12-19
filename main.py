@@ -159,7 +159,7 @@ def main():
             text += ' снял(а) с Вас ' if (value < 0) else ' перевел(а) Вам '
             text += str(abs(value)) + '🥭.'
             
-            bot.send_message(int(user2['TelegtramChatId']), text, reply_markup=keyboard.markup)
+            bot.send_message(int(user2['TelegramChatId']), text, reply_markup=keyboard.markup)
             bot.send_message(msg.chat.id, 'Транзакция успешно подтверждена.', reply_markup=keyboard.markup)
 
     
