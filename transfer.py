@@ -5,13 +5,13 @@ import time
 from print_data import *
 
 class trans:
-	
-    def __init__(self,id,text):		
+
+    def __init__(self,id,text):
 		
         self.Username_2, self.transfer_sum = ' ',' '
         if type(text) == 'str' and len(text) > 0:
             if len(text.split(' ')) == 2:
-                self.Username_2, self.transfer_sum = msg.split(' ')
+                self.Username_2, self.transfer_sum = text.split(' ')
 
         self.id = id
         self.balance_1 = 0
