@@ -1,1 +1,1 @@
-token_of_bot = '833025627:AAFGvHjM4eB4ypPZr9Q3Fqsf0Ll7MjiY8N0'
+token_of_bot = '1033555112:AAFzrCh8EkBvXM0XBDVxh_t_GkiBK0qxrvI'
