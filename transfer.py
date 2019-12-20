@@ -14,7 +14,7 @@ class trans:
         text = str(msg)
         if len(text) == 0:
             print('text is empty')
-        else:
+        elif len(text.split(' ')) == 2:
             self.Username_2, self.transfer_sum = text.split(' ')
 
         self.id = id
