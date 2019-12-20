@@ -81,7 +81,6 @@ class trans:
     def printt_before(self):
         print('### printt_before:')
         print('Transf_sum =',self.transfer_sum)
-        print('Userreturn with their balances before transer')
         print(self.User1['Surname'], self.Username_2)
         print(self.balance_1,self.balance_2)
         print('###')
@@ -89,7 +88,6 @@ class trans:
     def printt_after(self):
         print('### printt_after:')
         print('Transf_sum =',self.transfer_sum)
-        print('Users with their balances after transfer')
         print(self.User1['Surname'], self.Username_2)
         self.balance_1 = get_user(self.id)['Balance']
         self.balance_2 = get_user_by_surname(self.Username_2)['Balance']
