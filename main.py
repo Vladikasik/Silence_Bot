@@ -197,24 +197,12 @@ def main():
             a = 1 / 0
             print(a)
             
-        '''
-        elif msg.text == 'LoadBlockUsers':
-            print_log(msg)
-
-            if not check_admin( get_user(msg.chat.id) ):
-                return
-   
-            block_user = load_block_users()
-            bot.send_message(msg.chat.id, 'Спам-лист успешно загружен.')
-        '''
-            
         else:
             bot.send_message(msg.chat.id, msg_help)
 
     # После команды "Перевод"
     def do_trans(msg):
-        print('after trans')
-        print('msg:', msg.text, 'id:', msg.chat.id)
+        print_log(msg)
         
         user = get_user(msg.chat.id)
         if type(user) == dict:
