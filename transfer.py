@@ -100,20 +100,13 @@ class trans:
 
     def do_teacher(self):
         # добавление транзакции
-        time1 = time.strftime('%H %M %S %d %m').split()
-        time2 = ''
-        time3 = [':', ':', '_', '', '']
-        for i in range(0, len(time1)):
-            time2 += time1[i]
-            time2 += time3[i]
-
         trans_inf = {
             'From': self.User1['Surname'],
             'To': self.Username_2,
             'Value': self.transfer_sum,
-            'Time': time2
+            'Time': time.strftime('%x %X')
         }
-		
+	
         data = load_operations()
         data.append(trans_inf)
         save_operations(data)
