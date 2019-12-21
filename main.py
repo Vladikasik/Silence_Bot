@@ -6,13 +6,13 @@ import keyboard
 import transfer
 import datetime 
 
-#список спаммеров - в дальнейшем нужно автоматизировать и считывать из файла, если нужно, но чтобы не перегружать работу бота
-block_user = dict()
-block_user[872683288] = datetime(2019, 12, 21)   #блокировка Давида до 21.12.2019
-block_user[396665610] = datetime(2019, 12, 22)   #блокировка тест
-
 def main():
     bot = telebot.TeleBot(var.token_of_bot)
+    
+    #список спаммеров - в дальнейшем нужно автоматизировать и считывать из файла, если нужно, но чтобы не перегружать работу бота
+    block_user = dict()
+    block_user[872683288] = datetime(2019, 12, 21)   #блокировка Давида до 21.12.2019
+    block_user[396665610] = datetime(2019, 12, 22)   #блокировка тест
     
 ##### Обработка команды /start
     @bot.message_handler(commands=['start'])
