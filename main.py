@@ -15,7 +15,7 @@ def main():
     bot = telebot.TeleBot(var.token_of_bot)
     
     def print_log(msg):
-        print('[' + strftime('%x %X') + ' >> ' + str(msg.chat.id)']:')
+        print('[' + strftime('%x %X') + ' >> ' + str(msg.chat.id) + ']:')
         print('msg:',msg.text)
     
 ##### Обработка команды /start
