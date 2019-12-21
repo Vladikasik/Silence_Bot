@@ -1,5 +1,18 @@
 import json
 
+# загрузка спам-листа
+def load_block_users():
+    with open(r'../database/block_users.json', 'r') as file:
+        data = json.loads(file.read())
+        file.close()
+    return data
+    
+# сохранение спам-листа
+def save_block_users(data):
+    with open(r'../database/block_users.json', 'w') as file:
+        json.dump(data, file, indent=2, ensure_ascii=False)
+    file.close()
+
 # загрузка базы пользователей из файла
 def load_users():
     with open(r'../database/users.json', 'r') as file:
