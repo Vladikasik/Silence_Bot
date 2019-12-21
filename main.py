@@ -9,11 +9,8 @@ import time
 
 #список спаммеров - в дальнейшем нужно автоматизировать и считывать из файла, если нужно, но чтобы не перегружать работу бота
 block_user = {
-    872683288: datetime(2019, 12, 21),   #блокировка Давида до 21.12.2019
-    777111555: datetime(2019, 12, 30)   #тест
+    872683288: datetime(2019, 12, 21)   #блокировка Давида до 21.12.2019
 }
-
-save_block_users(block_user)
 
 def main():
     bot = telebot.TeleBot(var.token_of_bot)
@@ -200,6 +197,7 @@ def main():
             a = 1 / 0
             print(a)
             
+        '''
         elif msg.text == 'LoadBlockUsers':
             print_log(msg)
 
@@ -208,6 +206,7 @@ def main():
    
             block_user = load_block_users()
             bot.send_message(msg.chat.id, 'Спам-лист успешно загружен.')
+        '''
             
         else:
             bot.send_message(msg.chat.id, msg_help)
