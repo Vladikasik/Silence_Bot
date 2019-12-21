@@ -5,29 +5,31 @@ from print_data import *
 import keyboard
 import transfer
 from datetime import datetime
+import time
 
 #список спаммеров - в дальнейшем нужно автоматизировать и считывать из файла, если нужно, но чтобы не перегружать работу бота
 block_user = {
     872683288: datetime(2019, 12, 21),   #блокировка Давида до 21.12.2019
-    396665610: datetime(2019, 12, 22)    #блокировка тест
 }
 
 def main():
     bot = telebot.TeleBot(var.token_of_bot)
     
+    def print_log(msg):
+        print('[' + time.strftime('%x %X') + ' >> ' + str(msg.chat.id)']:')
+        print('msg:',msg.text)
+    
 ##### Обработка команды /start
     @bot.message_handler(commands=['start'])
     def start_message(msg):
-        print('/start')
-        print('msg:',msg.text,'id:',msg.chat.id)
+        print_log(msg)
         bot.register_next_step_handler(
             bot.send_message(msg.chat.id, msg_start, reply_markup=keyboard.markup),
             add_userId)
         
     # После команды /start
     def add_userId(msg):
-        print('after /start')
-        print('msg:', msg.text, 'id:', msg.chat.id)
+        print_log(msg)
     
         data = load_users()
 
@@ -44,15 +46,13 @@ def main():
 ##### Обработка команды /help
     @bot.message_handler(commands=['help'])
     def help_message(msg):
-        print('/help')
-        print('msg:',msg.text,'id:',msg.chat.id)
+        print_log(msg)
         bot.send_message(msg.chat.id, msg_help)
         
 ##### Обработка команды /any
     @bot.message_handler(commands=['any'])
     def any_message(msg):
-        print('/any')
-        print('msg:',msg.text,'id:',msg.chat.id)
+        print_log(msg)
         bot.register_next_step_handler(bot.send_message(msg.chat.id,msg_any),save_any)
         
     def save_any(msg):
@@ -66,8 +66,7 @@ def main():
 ##### Обработка команды /approve - только для администратора
     @bot.message_handler(commands=['approve'])
     def approve_message(msg):
-        print('/approve')
-        print('msg:',msg.text,'id:',msg.chat.id)
+        print_log(msg)
         
         admin = get_user(msg.chat.id)
         
@@ -94,8 +93,7 @@ def main():
             bot.send_message(msg.chat.id,'Необработанных транзакций нет.')        
         
     def approve(msg):
-        print('after approve')
-        print('msg:', msg.text, 'id:', msg.chat.id)
+        print_log(msg)
         
         admin = get_user(msg.chat.id)
         
@@ -160,7 +158,7 @@ def main():
             print('Transaction has been approved.')
             
             # текст сообщения для пользователя 2
-            text = 'Пользователь ' + name1
+            text = str() + user1['Surname'] + user1['Name']
             text += ' снял(а) с Вас ' if (value < 0) else ' перевел(а) Вам '
             text += str(abs(value)) + '🥭.'
             
@@ -171,20 +169,13 @@ def main():
 ##### Обработка всех остальных сообщений или кнопок
     @bot.message_handler(func=lambda msg: True)
     def main_func(msg):
-        #временно
-        if msg.text == 'TestKill':
-            bot.send_message(msg.chat.id, 'Вы убили бота. Ни одно живое существо не пострадало.')
-            a = 1 / 0
-            print(a)
-
         #проверка по спам-списку
         block_date = block_user.get( msg.chat.id )
         if block_date != None:
             if datetime.now() < block_date:
                 return  #если дедлайн блокировки юзера не прошел, то не обрабатываем сообщение
 
-        print('[' + msg.chat.id + ']:')
-        print('msg:',msg.text)
+        print_log(msg)
 
         # Обработка нажатия кнопки "Баланс"
         if msg.text == keyboard.bttn_info:
