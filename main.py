@@ -13,7 +13,7 @@ block_user = {
     777111555: datetime(2019, 12, 30)   #тест
 }
 
-save_block_users(block_users)
+save_block_users(block_user)
 
 def main():
     bot = telebot.TeleBot(var.token_of_bot)
@@ -206,7 +206,7 @@ def main():
             if not check_admin( get_user(msg.chat.id) ):
                 return
    
-            block_users = load_block_users()
+            block_user = load_block_users()
             bot.send_message(msg.chat.id, 'Спам-лист успешно загружен.')
             
         else:
