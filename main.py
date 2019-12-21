@@ -66,21 +66,25 @@ def main():
         bot.send_message(msg.chat.id,msg_any_done)
         #bot.send_message(var.support_telegram_id,msg.text) #отправка сообщения специально выделенному контакту
 
+    def check_admin(user):
+        if type(user) != dict:
+            print('User data error')
+            bot.send_message(msg.chat.id,'Ошибка данных пользователя.')
+            return False
+        
+        elif user['Group'] != 'Admin':
+            print('No admin permission')
+            bot.send_message(msg.chat.id,'Недостаточно прав. Команда доступна только администратору.')
+            return False
+        
+        return True
+
 ##### Обработка команды /approve - только для администратора
     @bot.message_handler(commands=['approve'])
     def approve_message(msg):
         print_log(msg)
         
-        admin = get_user(msg.chat.id)
-        
-        if type(admin) != dict:
-            print('User data error')
-            bot.send_message(msg.chat.id,'Ошибка данных пользователя.')
-            return
-        elif admin['Group'] != 'Admin':
-            print('No admin permission')
-            bot.send_message(msg.chat.id,'Недостаточно прав. Команда доступна только администратору.')
-            return    
+        if !check_admin( get_user(msg.chat.id) ) return
         
         pend = load_pending()
         n = len(pend)
@@ -194,7 +198,15 @@ def main():
             bot.send_message(msg.chat.id, 'Вы убили бота. Ни одно живое существо не пострадало.')
             a = 1 / 0
             print(a)
+            
+        elif msg.text == 'LoadBlockUsers':
+            print_log(msg)
 
+            if !check_admin( get_user(msg.chat.id) ) return
+   
+            block_users = load_block_users()
+            bot.send_message(msg.chat.id, 'Спам-лист успешно загружен.')
+            
         else:
             bot.send_message(msg.chat.id, msg_help)
 
