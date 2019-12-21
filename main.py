@@ -5,6 +5,7 @@ from print_data import *
 import keyboard
 import transfer
 from datetime import datetime
+import time
 
 #список спаммеров - в дальнейшем нужно автоматизировать и считывать из файла, если нужно, но чтобы не перегружать работу бота
 block_user = {
@@ -15,7 +16,7 @@ def main():
     bot = telebot.TeleBot(var.token_of_bot)
     
     def print_log(msg):
-        print('[' + strftime('%x %X') + ' >> ' + str(msg.chat.id) + ']:')
+        print('[' + time.strftime('%x %X') + ' >> ' + str(msg.chat.id) + ']:')
         print('msg:',msg.text)
     
 ##### Обработка команды /start
