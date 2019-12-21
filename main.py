@@ -4,8 +4,13 @@ from messages import *
 from print_data import *
 import keyboard
 import transfer
+import datetime 
 
-spam_list = [872683288]
+#список спаммеров - в дальнейшем нужно автоматизировать и считывать из файла, если нужно, но чтобы не перегружать работу бота
+block_user = {
+    872683288: datetime(2019, 12, 21),   #блокировка Давида до 21.12.2019
+    396665610: datetime(2019, 12, 22)    #блокировка тест
+}
 
 def main():
     bot = telebot.TeleBot(var.token_of_bot)
@@ -166,12 +171,20 @@ def main():
 ##### Обработка всех остальных сообщений или кнопок
     @bot.message_handler(func=lambda msg: True)
     def main_func(msg):
-        #временная проверка id из спам-списка
-        if msg.chat.id in spam_list:
-            return
+        #временно
+        if msg.text == 'TestKill':
+            bot.send_message(msg.chat.id, 'Вы убили бота. Ни одно живое существо не пострадало.')
+            a = 1 / 0
+            print(a)
 
-        print('button')
-        print('msg:',msg.text,'id:',msg.chat.id)
+        #проверка по спам-списку
+        block_date = block_user.get( msg.chat.id )
+        if block_date != None:
+            if datetime.now() < block_date:
+                return  #если дедлайн блокировки юзера не прошел, то не обрабатываем сообщение
+
+        print('[' + msg.chat.id + ']:')
+        print('msg:',msg.text)
 
         # Обработка нажатия кнопки "Баланс"
         if msg.text == keyboard.bttn_info:
@@ -184,6 +197,7 @@ def main():
                 do_trans)
 
         elif msg.text == 'KillTheBotRightNow':
+            bot.send_message(msg.chat.id, 'Вы убили бота. Ни одно живое существо не пострадало.')
             a = 1 / 0
             print(a)
 
