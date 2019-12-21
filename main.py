@@ -84,7 +84,8 @@ def main():
     def approve_message(msg):
         print_log(msg)
         
-        if not check_admin( get_user(msg.chat.id) ) return
+        if not check_admin( get_user(msg.chat.id) ):
+            return
         
         pend = load_pending()
         n = len(pend)
@@ -202,7 +203,8 @@ def main():
         elif msg.text == 'LoadBlockUsers':
             print_log(msg)
 
-            if not check_admin( get_user(msg.chat.id) ) return
+            if not check_admin( get_user(msg.chat.id) ):
+                return
    
             block_users = load_block_users()
             bot.send_message(msg.chat.id, 'Спам-лист успешно загружен.')
