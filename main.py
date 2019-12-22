@@ -137,10 +137,17 @@ def main():
                 elif u['Surname'] == name2:
                      user2 = u
         
-            if (type(user1) != dict) | (type(user2) != dict):
+            if (type(user1) != dict) or (type(user2) != dict)
                 print('User data error in transaction')
+                print('user1:',user1,'\n','user2:',user2)
                 bot.send_message(msg.chat.id,'User data error in transaction', reply_markup=keyboard.markup)
                 return
+            
+            if (user1['Balance'] == '') or (user1['TelegramChatId'] == '') or (user2['Balance'] == '') or (user2['TelegramChatId'] == ''):
+                print('User data error in transaction')
+                print('user1:',user1,'\n','user2:',user2)
+                bot.send_message(msg.chat.id,'User data error in transaction', reply_markup=keyboard.markup)
+                return   
             
             if name1 == name2:
                 print('Same user error in transaction')
@@ -164,7 +171,7 @@ def main():
             print('Transaction has been approved.')
             
             # текст сообщения для пользователя 2
-            text = str() + user1['Surname'] + user1['Name']
+            text = str() + user1['Surname'] + ' ' + user1['Name']
             text += ' снял(а) с Вас ' if (value < 0) else ' перевел(а) Вам '
             text += str(abs(value)) + '🥭.'
             
