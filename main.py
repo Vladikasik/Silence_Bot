@@ -104,7 +104,7 @@ def main():
         except:
             print('ERROR: exception in approve')
             bot.send_message(msg.chat.id,'Что-то прошло не так. Попробуйте по-другому.')
-            bot.send_message(msg.chat.id,'Проверьте, что все пользователи существуют, у них непустые имены, баланс и chatid.')
+            bot.send_message(msg.chat.id,'Проверьте, что все пользователи существуют, у них непустое имя, баланс и chatid.')
         
     def approve(msg):
         print_log(msg)
@@ -149,19 +149,20 @@ def main():
             if (type(user1) != dict) or (type(user2) != dict) #сравнение типов не работает!
                 print('User data error in transaction')
                 print('user1:',user1,'\n','user2:',user2)
-                bot.send_message(msg.chat.id,'User data error in transaction', reply_markup=keyboard.markup)
-                return
+                bot.send_message(msg.chat.id,'Ошибка при транзакции.', reply_markup=keyboard.markup)
+                return   '''
             
             if (user1['Balance'] == '') or (user1['TelegramChatId'] == '') or (user2['Balance'] == '') or (user2['TelegramChatId'] == ''):
                 print('User data error in transaction')
                 print('user1:',user1,'\n','user2:',user2)
-                bot.send_message(msg.chat.id,'User data error in transaction', reply_markup=keyboard.markup)
+                bot.send_message(msg.chat.id,'Ошибка при транзакции.')
+                bot.send_message(msg.chat.id,'Проверьте, что все пользователи существуют, у них непустое имя, баланс и chatid.', reply_markup=keyboard.markup)
                 return   
             
             if name1 == name2:
                 print('Same user error in transaction')
                 bot.send_message(msg.chat.id,'Нельзя осуществлять перевод самому себе.', reply_markup=keyboard.markup)
-                return           '''  
+                return
             
             print(name1,'->',name2)
             print('before:', user1['Balance'], '->', user2['Balance'])
