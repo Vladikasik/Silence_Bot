@@ -93,10 +93,17 @@ def main():
             print(text)
             bot.register_next_step_handler(
                 bot.send_message(msg.chat.id, text, reply_markup=keyboard.markup_admin),
-                approve)
+                approve_try)
         else:
             print('No pending trasactions')
             bot.send_message(msg.chat.id,'Необработанных транзакций нет.')        
+        
+    def approve_try(msg):
+        try:
+            approve(msg)
+        except:
+            print('exception in approve')
+            bot.send_message(msg.chat.id,'Что-то прошло не так. Попробуйте по-другому.')
         
     def approve(msg):
         print_log(msg)
@@ -137,7 +144,8 @@ def main():
                 elif u['Surname'] == name2:
                      user2 = u
         
-            if (type(user1) != dict) or (type(user2) != dict)
+            '''
+            if (type(user1) != dict) or (type(user2) != dict) #сравнение типов не работает!
                 print('User data error in transaction')
                 print('user1:',user1,'\n','user2:',user2)
                 bot.send_message(msg.chat.id,'User data error in transaction', reply_markup=keyboard.markup)
@@ -152,7 +160,7 @@ def main():
             if name1 == name2:
                 print('Same user error in transaction')
                 bot.send_message(msg.chat.id,'Нельзя осуществлять перевод самому себе.', reply_markup=keyboard.markup)
-                return    
+                return           '''  
             
             print(name1,'->',name2)
             print('before:', user1['Balance'], '->', user2['Balance'])
