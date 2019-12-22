@@ -102,8 +102,9 @@ def main():
         try:
             approve(msg)
         except:
-            print('exception in approve')
+            print('ERROR: exception in approve')
             bot.send_message(msg.chat.id,'Что-то прошло не так. Попробуйте по-другому.')
+            bot.send_message(msg.chat.id,'Проверьте, что все пользователи существуют, у них непустые имены, баланс и chatid.')
         
     def approve(msg):
         print_log(msg)
