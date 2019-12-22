@@ -63,15 +63,16 @@ def main():
         bot.send_message(msg.chat.id,msg_any_done)
         #bot.send_message(var.support_telegram_id,msg.text) #отправка сообщения специально выделенному контакту
 
-    def check_admin(user):
+    def check_admin_print(id):
+        user = get_user(id)
         if type(user) != dict:
             print('User data error')
-            bot.send_message(msg.chat.id,'Ошибка данных пользователя.')
+            bot.send_message(id,'Ошибка данных пользователя.')
             return False
         
         if user['Group'] != 'Admin':
             print('No admin permission')
-            bot.send_message(msg.chat.id,'Недостаточно прав. Команда доступна только администратору.')
+            bot.send_message(id,'Недостаточно прав. Команда доступна только администратору.')
             return False
         
         return True
@@ -81,7 +82,7 @@ def main():
     def approve_message(msg):
         print_log(msg)
         
-        if not check_admin( get_user(msg.chat.id) ):
+        if not check_admin_print(msg.chat.id):
             return
         
         pend = load_pending()
